@@ -20,7 +20,8 @@ So far this project relies on a set of packages that I could consider, at best, 
  - com.alephvault.unity.soundaround: [Clone it](http://github.com/AlephVault/unity-soundaround).
  - com.gamemeanmachine.unity.backpack: [Clone it](http://gitlab.com/gamemeanmachine/unity-backpack).
  - com.gamemeanmachine.unity.gabtab: [Clone it](http://gitlab.com/gamemeanmachine/unity-gabtab).
- - com.gamemeanmachine.unity.windrose: [Clone it](http://gitlab.com/gamemeanmachine/unity-windrose).
+ - com.gamemeanmachine.unity.windrose: [Clone it](http://gitlab.com/gamemeanmachine/unity-windrose) (use tag 0.0.2 for this one).
+ - com.gamemeanmachine.unity.windrose.biomes: [Clone it](http://gitlab.com/gamemeanmachine/unity-windrose-biomes).
  - com.gamemeanmachine.unity.windrose-backpack: [Clone it](http://gitlab.com/gamemeanmachine/unity-windrose-backpack-plugin).
  - com.gamemeanmachine.unity.windrose-gabtab: [Clone it](http://gitlab.com/gamemeanmachine/unity-windrose-gabtab-plugin).
  - com.alephvault.unity.binary: [Clone it](http://github.com/AlephVault/unity-binary).
