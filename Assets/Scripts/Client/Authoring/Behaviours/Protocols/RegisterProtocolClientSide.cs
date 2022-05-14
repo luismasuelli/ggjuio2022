@@ -72,6 +72,17 @@ namespace GGJUIO2020.Client
 
                     protected override void SetIncomingMessageHandlers()
                     {
+                        AddIncomingMessageHandler("Welcome", async protocol =>
+                        {
+                            Debug.Log("Registering");
+                            await SendRegister(new UserBody()
+                            {
+                                Login = Login,
+                                Password = Password,
+                                PasswordConfirm = PasswordConfirm,
+                                NickName = NickName
+                            });
+                        });
                         AddIncomingMessageHandler("Ok", async protocol =>
                         {
                             Debug.Log("Register OK");

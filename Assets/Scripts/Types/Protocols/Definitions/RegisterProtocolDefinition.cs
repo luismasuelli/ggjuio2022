@@ -15,6 +15,8 @@ namespace GGJUIO2020.Types
             {
                 protected override void DefineMessages()
                 {
+                    DefineServerMessage("Welcome");
+                    DefineServerMessage("Timeout");
                     DefineClientMessage<UserBody>("Register");
                     DefineServerMessage("Ok");
                     DefineServerMessage("Duplicate");
