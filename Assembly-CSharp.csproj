@@ -53,6 +53,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\LoginProtocolClientSide.cs" />
+     <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\RegisterProtocolClientSide.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\LoginProtocolServerSide.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\MainProtocolServerSide.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\RegisterProtocolServerSide.cs" />
