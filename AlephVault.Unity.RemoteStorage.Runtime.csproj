@@ -52,23 +52,23 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Implementation\Engine_Common.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Implementation\Engine.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\Types\Results\Result.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\Cursor.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\Resource.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\Authorization.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Implementation\Engine_Errors.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\Root.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\Conflict.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\BadRequest.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\Created.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\Types\Results\ResultCode.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\ListResource.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\Types\Interfaces\IListResource.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\Types\Interfaces\IRoot.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\Types\Interfaces\ISimpleResource.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\SimpleResource.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Implementation\Engine_Errors.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\Types\Interfaces\IListResource.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Implementation\Engine_Common.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\Resource.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\Types\Interfaces\IRoot.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\Root.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\Created.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\ListResource.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\Cursor.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\Types\Results\ResultCode.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\Conflict.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\BadRequest.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Types\Authorization.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\StandardHttp\Implementation\Engine.cs" />
      <None Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Runtime\AlephVault.Unity.RemoteStorage.Runtime.asmdef" />
  <Reference Include="UnityEngine">
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

@@ -53,10 +53,10 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Samples\Scripts\Input\ItemDelta.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Samples\Scripts\Input\MOTDInput.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Samples\Scripts\SampleHTTPInteractor.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Samples\Scripts\Universe.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Samples\Scripts\Version.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Samples\Scripts\Input\MOTDInput.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Samples\Scripts\Universe.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Samples\Scripts\Account.cs" />
      <None Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Samples\AlephVault.Unity.RemoteStorage.Samples.asmdef" />
  <Reference Include="UnityEngine">

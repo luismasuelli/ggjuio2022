@@ -52,27 +52,52 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\Models\PlayerCharacterClientSide.cs" />
-     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\Models\PlayerCharacterClientSide.cs" />
-     <Compile Include="Assets\Scripts\Types\Models\User.cs" />
-     <Compile Include="Assets\Scripts\Types\Models\QuestItem.cs" />
-     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\External\Storage.cs" />
-     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\External\StorageTest.cs" />
-     <Compile Include="Assets\Scripts\Types\Protocols\Definitions\RegisterProtocolDefinition.cs" />
-     <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\MainProtocolClientSide.cs" />
-     <Compile Include="Assets\Scripts\Types\Protocols\Messages\Kicked.cs" />
+     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\Models\GlobalTeleporterModelServerSide.cs" />
      <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\RegisterProtocolClientSide.cs" />
+     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\Models\PlayerCharacterClientSide.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Definitions\RegisterProtocolDefinition.cs" />
+     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\RegisterProtocolServerSide.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Messages\UserAccount.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Messages\LoginBody.cs" />
-     <Compile Include="Assets\Scripts\Types\Protocols\Messages\LoginFailed.cs" />
+     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\External\Storage.cs" />
+     <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\Models\GlobalTeleporterModelClientSide.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Definitions\LoginProtocolDefinition.cs" />
-     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\LoginProtocolServerSide.cs" />
+     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\External\StorageTest.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Messages\Kicked.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Definitions\MainProtocolDefinition.cs" />
-     <Compile Include="Assets\Scripts\Types\Protocols\Messages\CurrentMission.cs" />
-     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\RegisterProtocolServerSide.cs" />
-     <Compile Include="Assets\Scripts\Types\Protocols\Messages\UserBody.cs" />
+     <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\MainProtocolClientSide.cs" />
+     <Compile Include="Assets\Scripts\Types\Models\User.cs" />
+     <Compile Include="Assets\Scripts\Types\Models\QuestItem.cs" />
+     <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\Models\GlobalTeleportTargetModelClientSide.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Messages\LoginFailed.cs" />
+     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\Models\GlobalTeleportTargetModelServerSide.cs" />
+     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\LoginProtocolServerSide.cs" />
+     <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\Models\PlayerCharacterClientSide.cs" />
      <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\LoginProtocolClientSide.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Messages\CurrentMission.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Messages\UserBody.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\MainProtocolServerSide.cs" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
  <Reference Include="UnityEngine">
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -740,6 +765,10 @@
       <Project>{31efc4a2-8344-3ed4-d23b-e8562c91da89}</Project>
       <Name>AlephVault.Unity.Meetgard.Scopes.Samples</Name>
     </ProjectReference>
+    <ProjectReference Include="AlephVault.Unity.RemoteStorage.Runtime.csproj">
+      <Project>{53fd7a58-bcf8-bb21-0652-9dde176b51e7}</Project>
+      <Name>AlephVault.Unity.RemoteStorage.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="AlephVault.Unity.MenuActions.Editor.csproj">
       <Project>{160197f8-4137-f2c5-f5d2-769a589c913e}</Project>
       <Name>AlephVault.Unity.MenuActions.Editor</Name>
@@ -832,17 +861,13 @@
       <Project>{569ec2e6-842d-7d2e-8fc7-fe988ff12dcc}</Project>
       <Name>AlephVault.Unity.Meetgard.Auth.Samples</Name>
     </ProjectReference>
-    <ProjectReference Include="GameMeanMachine.Unity.WindRose.BackPack.Editor.csproj">
-      <Project>{a52f87c0-7afd-b600-e3d6-629cd33c1dfc}</Project>
-      <Name>GameMeanMachine.Unity.WindRose.BackPack.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="AlephVault.Unity.RemoteStorage.Runtime.csproj">
-      <Project>{53fd7a58-bcf8-bb21-0652-9dde176b51e7}</Project>
-      <Name>AlephVault.Unity.RemoteStorage.Runtime</Name>
-    </ProjectReference>
     <ProjectReference Include="AlephVault.Unity.RemoteStorage.Samples.csproj">
       <Project>{3fb2f48e-5694-7fd4-0f2a-9fd4a8f5935a}</Project>
       <Name>AlephVault.Unity.RemoteStorage.Samples</Name>
+    </ProjectReference>
+    <ProjectReference Include="GameMeanMachine.Unity.WindRose.BackPack.Editor.csproj">
+      <Project>{a52f87c0-7afd-b600-e3d6-629cd33c1dfc}</Project>
+      <Name>GameMeanMachine.Unity.WindRose.BackPack.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
