@@ -13,7 +13,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{94dbf1e9-02da-5765-3703-221d7d5d2108}</ProjectGuid>
+    <ProjectGuid>{31efc4a2-8344-3ed4-d23b-e8562c91da89}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -298,16 +298,16 @@
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Plastic.Antlr3.Runtime">
- <HintPath>/home/luismasuelli/Projects/Unity/My NetRose Game/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+ <HintPath>/home/luismasuelli/Projects/Unity/ggjuio2022/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="log4netPlastic">
- <HintPath>/home/luismasuelli/Projects/Unity/My NetRose Game/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
+ <HintPath>/home/luismasuelli/Projects/Unity/ggjuio2022/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>/home/luismasuelli/Projects/Unity/My NetRose Game/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+ <HintPath>/home/luismasuelli/Projects/Unity/ggjuio2022/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="unityplastic">
- <HintPath>/home/luismasuelli/Projects/Unity/My NetRose Game/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
+ <HintPath>/home/luismasuelli/Projects/Unity/ggjuio2022/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -655,35 +655,35 @@
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>/home/luismasuelli/Projects/Unity/My NetRose Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>/home/luismasuelli/Projects/Unity/ggjuio2022/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>/home/luismasuelli/Projects/Unity/My NetRose Game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>/home/luismasuelli/Projects/Unity/ggjuio2022/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="AlephVault.Unity.Binary.Runtime.csproj">
-      <Project>{1cad1368-bcdb-19c4-8177-2b4390cdf8e6}</Project>
+      <Project>{1c81b787-c527-17d7-4083-b7bc00c1d1db}</Project>
       <Name>AlephVault.Unity.Binary.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="AlephVault.Unity.Support.Runtime.csproj">
-      <Project>{c2c184f8-4b91-bd3c-7316-c725d89ba260}</Project>
+      <Project>{ff4b1091-44be-15b9-3a7b-afedee6c15a4}</Project>
       <Name>AlephVault.Unity.Support.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="AlephVault.Unity.Support.Generic.Runtime.csproj">
-      <Project>{c5b75173-9560-3316-e07b-452b8e988268}</Project>
+      <Project>{203cbc54-35f8-675c-4204-7cf6e7f7ab5c}</Project>
       <Name>AlephVault.Unity.Support.Generic.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="AlephVault.Unity.Meetgard.Runtime.csproj">
-      <Project>{269ae18d-c4e3-7440-fb15-b1fb16c5e677}</Project>
+      <Project>{71df5e61-3b95-9061-1c04-78e8873c2177}</Project>
       <Name>AlephVault.Unity.Meetgard.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="AlephVault.Unity.Meetgard.Scopes.Runtime.csproj">
-      <Project>{4e99ceda-dea3-6741-4e52-419295bf004d}</Project>
+      <Project>{20a152c6-32fb-a4d1-8211-ba66970ce9ad}</Project>
       <Name>AlephVault.Unity.Meetgard.Scopes.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="AlephVault.Unity.Support.Generic.Editor.csproj">
-      <Project>{ab7c411d-bd81-ca62-0798-55313d1ccbac}</Project>
+      <Project>{a6a086f1-f8d7-e9ac-d8f0-8fd4e11fd537}</Project>
       <Name>AlephVault.Unity.Support.Generic.Editor</Name>
     </ProjectReference>
   </ItemGroup>

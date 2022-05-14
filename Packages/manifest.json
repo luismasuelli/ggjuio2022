@@ -7,6 +7,7 @@
     "com.alephvault.unity.meetgard.auth": "file:../../unity-meetgard-auth",
     "com.alephvault.unity.meetgard.scopes": "file:../../unity-meetgard-scopes",
     "com.alephvault.unity.menuactions": "file:../../unity-menu-actions",
+    "com.alephvault.unity.remotestorage": "file:/home/luismasuelli/Projects/Unity/unity-remotestorage",
     "com.alephvault.unity.soundaround": "file:../../unity-soundaround",
     "com.alephvault.unity.support": "file:../../unity-support",
     "com.alephvault.unity.support.generic": "file:../../unity-support-generic",

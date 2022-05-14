@@ -13,7 +13,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{b1979b04-9c19-ad34-3a09-f68efccf6d5f}</ProjectGuid>
+    <ProjectGuid>{a2508b73-9202-49c4-4cdb-ad2509f098cf}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -59,14 +59,19 @@
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Common\Pausable.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Ceilings\Ceiling.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\World\Scope.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\ScriptableObjects\Animations\SpriteRose.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\ScriptableObjects\Tiles\BundledTile.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Visuals\StateBundles\Moving\MovingSpriteRoseBundle.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Objects\Strategies\ObjectStrategy.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\World\Layers\Objects\ObjectsManagementStrategies\Solidness\SolidnessObjectsManagementStrategy.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\World\Layers\Objects\ObjectsManagementStrategies\Solidness\SolidnessStatus.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Types\Direction.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Objects\CommandExchange\Talk\TalkSender.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Visuals\MultiRoseSprited.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Types\Rose.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\World\Layers\Ceiling\CeilingLayer.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Objects\Strategies\Simple\SimpleObjectStrategy.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Visuals\MultiSprited.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Objects\TriggerZone.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Visuals\StateBundles\AnimationRoseBundle.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\World\Map.cs" />
@@ -84,12 +89,14 @@
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Visuals\StateBundles\Moving\MovingAnimationRoseBundle.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Ceilings\Local\LocallyTriggeredCeiling.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\World\Layers\Objects\ObjectsManagementStrategies\Base\LayoutObjectsManagementStrategy.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\World\Layers\Objects\ObjectsManagementStrategies\Base\BlockType.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Visuals\StateBundles\SpriteBundle.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\World\Layers\Objects\ObjectsManagementStrategies\ObjectsManagementStrategy.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Visuals\StateBundles\Moving\MovingAnimationBundle.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Visuals\StateBundles\SpriteRoseBundle.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\World\Layers\Objects\ObjectsManagementStrategies\Simple\SimpleObjectsManagementStrategy.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Visuals\RoseAnimated.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Visuals\MultiSprite.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\World\Layers\Objects\ObjectsManagementStrategies\Base\BlockMode.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Visuals\MultiRoseAnimated.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\World\Layers\Objects\ObjectsManagementStrategies\Solidness\StepType.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Visuals\VisualBehaviour.cs" />
@@ -110,9 +117,11 @@
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Objects\TriggerPlatform.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Objects\CommandExchange\Talk\TalkReceiver.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Objects\ObjectStrategyHolder.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Types\State.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\ScriptableObjects\Tiles\Strategies\Base\LayoutTileStrategy.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Objects\TriggerVisionRange.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\ScriptableObjects\Tiles\Strategies\TileStrategy.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Entities\Visuals\RoseSprited.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\Floors\Floor.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\Authoring\Behaviours\World\Layers\Objects\ObjectsManagementStrategies\Solidness\SolidMask.cs" />
      <None Include="\home\luismasuelli\Projects\Unity\unity-windrose\Runtime\GameMeanMachine.Unity.WindRose.Runtime.asmdef" />
@@ -348,16 +357,16 @@
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Plastic.Antlr3.Runtime">
- <HintPath>/home/luismasuelli/Projects/Unity/My NetRose Game/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+ <HintPath>/home/luismasuelli/Projects/Unity/ggjuio2022/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="log4netPlastic">
- <HintPath>/home/luismasuelli/Projects/Unity/My NetRose Game/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
+ <HintPath>/home/luismasuelli/Projects/Unity/ggjuio2022/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>/home/luismasuelli/Projects/Unity/My NetRose Game/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+ <HintPath>/home/luismasuelli/Projects/Unity/ggjuio2022/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="unityplastic">
- <HintPath>/home/luismasuelli/Projects/Unity/My NetRose Game/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
+ <HintPath>/home/luismasuelli/Projects/Unity/ggjuio2022/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -705,19 +714,19 @@
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>/home/luismasuelli/Projects/Unity/My NetRose Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>/home/luismasuelli/Projects/Unity/ggjuio2022/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>/home/luismasuelli/Projects/Unity/My NetRose Game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>/home/luismasuelli/Projects/Unity/ggjuio2022/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="AlephVault.Unity.Support.Runtime.csproj">
-      <Project>{c2c184f8-4b91-bd3c-7316-c725d89ba260}</Project>
+      <Project>{ff4b1091-44be-15b9-3a7b-afedee6c15a4}</Project>
       <Name>AlephVault.Unity.Support.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="AlephVault.Unity.Layout.Runtime.csproj">
-      <Project>{e14654ca-088f-6fa0-90b1-6c27e5d6b693}</Project>
+      <Project>{701eb0ea-d449-77b2-97b0-930b62ae4a7c}</Project>
       <Name>AlephVault.Unity.Layout.Runtime</Name>
     </ProjectReference>
   </ItemGroup>

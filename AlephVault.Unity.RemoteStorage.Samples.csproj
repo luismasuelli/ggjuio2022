@@ -13,11 +13,11 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{c67543b1-d94c-7714-9cf3-4baaa8e00e7f}</ProjectGuid>
+    <ProjectGuid>{3fb2f48e-5694-7fd4-0f2a-9fd4a8f5935a}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>AlephVault.Unity.CamJam</AssemblyName>
+    <AssemblyName>AlephVault.Unity.RemoteStorage.Samples</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -52,10 +52,13 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-camjam\Runtime\Authoring\Behaviours\JammedCamera.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-camjam\Runtime\Authoring\Behaviours\CameraJammingEffect.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-camjam\Runtime\Authoring\Behaviours\Tremor.cs" />
-     <None Include="\home\luismasuelli\Projects\Unity\unity-camjam\Runtime\AlephVault.Unity.CamJam.asmdef" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Samples\Scripts\Input\ItemDelta.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Samples\Scripts\Input\MOTDInput.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Samples\Scripts\SampleHTTPInteractor.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Samples\Scripts\Universe.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Samples\Scripts\Version.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Samples\Scripts\Account.cs" />
+     <None Include="\home\luismasuelli\Projects\Unity\unity-remotestorage\Samples\AlephVault.Unity.RemoteStorage.Samples.asmdef" />
  <Reference Include="UnityEngine">
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -652,6 +655,14 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="AlephVault.Unity.Support.Generic.Runtime.csproj">
+      <Project>{203cbc54-35f8-675c-4204-7cf6e7f7ab5c}</Project>
+      <Name>AlephVault.Unity.Support.Generic.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="AlephVault.Unity.RemoteStorage.Runtime.csproj">
+      <Project>{53fd7a58-bcf8-bb21-0652-9dde176b51e7}</Project>
+      <Name>AlephVault.Unity.RemoteStorage.Runtime</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

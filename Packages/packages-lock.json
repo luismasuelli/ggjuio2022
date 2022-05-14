@@ -58,6 +58,15 @@
         "com.alephvault.unity.layout": "0.0.1"
       }
     },
+    "com.alephvault.unity.remotestorage": {
+      "version": "file:/home/luismasuelli/Projects/Unity/unity-remotestorage",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.alephvault.unity.support": "0.0.2",
+        "com.alephvault.unity.support.generic": "0.0.1"
+      }
+    },
     "com.alephvault.unity.soundaround": {
       "version": "file:../../unity-soundaround",
       "depth": 0,
@@ -113,7 +122,7 @@
       "depth": 0,
       "source": "local",
       "dependencies": {
-        "com.alephvault.unity.support": "0.0.1",
+        "com.alephvault.unity.support": "0.0.2",
         "com.alephvault.unity.layout": "0.0.1",
         "com.alephvault.unity.menuactions": "0.0.1"
       }
