@@ -52,24 +52,27 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\LoginProtocolClientSide.cs" />
-     <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\RegisterProtocolClientSide.cs" />
-     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\LoginProtocolServerSide.cs" />
-     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\MainProtocolServerSide.cs" />
-     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\RegisterProtocolServerSide.cs" />
+     <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\Models\PlayerCharacterClientSide.cs" />
+     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\Models\PlayerCharacterClientSide.cs" />
+     <Compile Include="Assets\Scripts\Types\Models\User.cs" />
+     <Compile Include="Assets\Scripts\Types\Models\QuestItem.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\External\Storage.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\External\StorageTest.cs" />
-     <Compile Include="Assets\Scripts\Types\Models\QuestItem.cs" />
-     <Compile Include="Assets\Scripts\Types\Models\User.cs" />
-     <Compile Include="Assets\Scripts\Types\Protocols\Definitions\LoginProtocolDefinition.cs" />
-     <Compile Include="Assets\Scripts\Types\Protocols\Definitions\MainProtocolDefinition.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Definitions\RegisterProtocolDefinition.cs" />
-     <Compile Include="Assets\Scripts\Types\Protocols\Messages\CurrentMission.cs" />
+     <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\MainProtocolClientSide.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Messages\Kicked.cs" />
+     <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\RegisterProtocolClientSide.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Messages\UserAccount.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Messages\LoginBody.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Messages\LoginFailed.cs" />
-     <Compile Include="Assets\Scripts\Types\Protocols\Messages\UserAccount.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Definitions\LoginProtocolDefinition.cs" />
+     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\LoginProtocolServerSide.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Definitions\MainProtocolDefinition.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Messages\CurrentMission.cs" />
+     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\RegisterProtocolServerSide.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Messages\UserBody.cs" />
+     <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\LoginProtocolClientSide.cs" />
+     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\MainProtocolServerSide.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
