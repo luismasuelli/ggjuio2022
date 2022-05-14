@@ -56,6 +56,14 @@
      <Compile Include="Assets\Scripts\Server\Types\RemoteStorage\QuestItem.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\External\Storage.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\External\StorageTest.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Definitions\LoginProtocolDefinition.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Definitions\MainProtocolDefinition.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Definitions\RegisterProtocolDefinition.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Messages\CurrentMission.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Messages\Kicked.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Messages\LoginBody.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Messages\LoginFailed.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Messages\UserBody.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
