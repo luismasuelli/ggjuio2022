@@ -55,7 +55,7 @@ namespace GGJUIO2020.Server
                     /// </summary>
                     /// <param name="login">The login</param>
                     /// <exception cref="Exception">When something is not ok, or missing</exception>
-                    public async Task<User> GetByLogin(string login)
+                    public async Task<User> GetUserByLogin(string login)
                     {
                         Result<JObject, string> result = await users.View(
                             "by-login", new Dictionary<string, string>() {{"login", login}}
@@ -80,7 +80,7 @@ namespace GGJUIO2020.Server
                     ///   Registers a user by its full data (_id is ignored).
                     /// </summary>
                     /// <param name="user">The whole user data</param>
-                    public async Task Create(User user)
+                    public async Task CreateUser(User user)
                     {
                         Result<User, string> result = await users.Create(user);
                         if (result.Code == ResultCode.Created)
@@ -107,7 +107,7 @@ namespace GGJUIO2020.Server
                     ///   Updates (i.e. fully replaces) a user record.
                     /// </summary>
                     /// <param name="user">The user to update. The _id and its data are taken into account</param>
-                    public async Task Update(User user)
+                    public async Task UpdateUser(User user)
                     {
                         Result<User, string> result = await users.Replace(user.Id, user);
                         if (result.Code == ResultCode.Created)
