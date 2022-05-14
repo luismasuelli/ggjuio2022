@@ -4,7 +4,7 @@ using UnityEngine;
 using AlephVault.Unity.RemoteStorage.StandardHttp.Types;
 using AlephVault.Unity.Support.Generic.Authoring.Types;
 using AlephVault.Unity.RemoteStorage.Types.Results;
-using GGJUIO2020.Server.Types.RemoteStorage;
+using GGJUIO2020.Types.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 

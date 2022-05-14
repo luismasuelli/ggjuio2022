@@ -13,7 +13,7 @@ namespace GGJUIO2020.Types
             /// <summary>
             ///   A login protocol with unsecured User/Pass.
             /// </summary>
-            public class SampleLoginProtocolDefinition : SimpleAuthProtocolDefinition<Nothing, LoginFailed, Kicked>
+            public class LoginProtocolDefinition : SimpleAuthProtocolDefinition<Nothing, LoginFailed, Kicked>
             {
                 protected override void DefineLoginMessages()
                 {
