@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlephVault.Unity.RemoteStor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlephVault.Unity.RemoteStorage.Samples", "AlephVault.Unity.RemoteStorage.Samples.csproj", "{3fb2f48e-5694-7fd4-0f2a-9fd4a8f5935a}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{64ed030b-e8b6-c3ef-9e47-1d3eed15d1d3}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameMeanMachine.Unity.WindRose.Editor", "GameMeanMachine.Unity.WindRose.Editor.csproj", "{921a14f2-6400-d859-06ba-fc562109dcab}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameMeanMachine.Unity.WindRose.BackPack.Editor", "GameMeanMachine.Unity.WindRose.BackPack.Editor.csproj", "{a52f87c0-7afd-b600-e3d6-629cd33c1dfc}"
@@ -147,6 +149,10 @@ Global
 		{3fb2f48e-5694-7fd4-0f2a-9fd4a8f5935a}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3fb2f48e-5694-7fd4-0f2a-9fd4a8f5935a}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3fb2f48e-5694-7fd4-0f2a-9fd4a8f5935a}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64ed030b-e8b6-c3ef-9e47-1d3eed15d1d3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64ed030b-e8b6-c3ef-9e47-1d3eed15d1d3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64ed030b-e8b6-c3ef-9e47-1d3eed15d1d3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64ed030b-e8b6-c3ef-9e47-1d3eed15d1d3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{921a14f2-6400-d859-06ba-fc562109dcab}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{921a14f2-6400-d859-06ba-fc562109dcab}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{921a14f2-6400-d859-06ba-fc562109dcab}.Release|Any CPU.ActiveCfg = Release|Any CPU
