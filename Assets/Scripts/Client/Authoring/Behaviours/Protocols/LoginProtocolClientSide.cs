@@ -25,7 +25,7 @@ namespace GGJUIO2020.Client
                     LoginProtocolDefinition, Nothing, LoginFailed, Kicked
                 >
                 {
-                    private Func<UserBody, Task> SendLogin;
+                    private Func<LoginBody, Task> SendLogin;
                     
                     /// <summary>
                     ///   The login.
@@ -69,7 +69,7 @@ namespace GGJUIO2020.Client
                     private async Task LoginProtocol_OnWelcome()
                     {
                         Debug.Log($"SSAPClient({Login}) :: welcome");
-                        _ = SendLogin(new UserBody() { Login = Login, Password = Password });
+                        _ = SendLogin(new LoginBody() { Login = Login, Password = Password });
                     }
         
                     private async Task LoginProtocol_OnTimeout()
@@ -119,7 +119,7 @@ namespace GGJUIO2020.Client
 
                     protected override void MakeLoginRequestSenders()
                     {
-                        SendLogin = MakeLoginRequestSender<UserBody>("Login:Community");
+                        SendLogin = MakeLoginRequestSender<LoginBody>("Login:Community");
                     }
                 }
             }
