@@ -69,7 +69,7 @@ namespace GGJUIO2020.Client
                     private async Task LoginProtocol_OnWelcome()
                     {
                         Debug.Log($"SSAPClient({Login}) :: welcome");
-                        _ = SendLogin(new LoginBody() { Login = Login, Password = Password });
+                        await SendLogin(new LoginBody() { Login = Login, Password = Password });
                     }
         
                     private async Task LoginProtocol_OnTimeout()

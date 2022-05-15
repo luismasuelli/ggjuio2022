@@ -67,15 +67,13 @@ namespace GGJUIO2020.Server
                                 UserAccount userAccount = await FindAccount(body.Login);
                                 if (body.Password == userAccount.Model.Password)
                                 {
-                                    Console.WriteLine($"Login Failed for body: [{body.Login}] [{body.Password}]");
-                                    return new Tuple<bool, Nothing, LoginFailed, string>(true, null, new LoginFailed(), "");
+                                    return new Tuple<bool, Nothing, LoginFailed, string>(true, new Nothing(), null, userAccount.Login);
                                 }
-                                return new Tuple<bool, Nothing, LoginFailed, string>(true, new Nothing(), null, userAccount.Login);
+                                return new Tuple<bool, Nothing, LoginFailed, string>(false, null, new LoginFailed() { Reason = "Password Invalido" }, "");
                             }
                             catch (Exception e)
                             {
-                                Console.WriteLine(e);
-                                return new Tuple<bool, Nothing, LoginFailed, string>(true, null, new LoginFailed(), "");
+                                return new Tuple<bool, Nothing, LoginFailed, string>(false, null, new LoginFailed() { Reason = "Error Interno" }, "");
                             }
                         });
                     }
