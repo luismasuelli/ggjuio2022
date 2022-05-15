@@ -121,11 +121,6 @@ namespace GGJUIO2020.Types
 
                 return baseText;
             }
-            
-            public string MissionAccomplished(string questionType)
-            {
-                return $"Felicidades! Encontraste el lugar correcto! {Info(questionType)}. Ve por tu próxima misión";
-            }
         }
     }
 }

@@ -7,6 +7,7 @@ using AlephVault.Unity.Support.Utils;
 using GameMeanMachine.Unity.GabTab.Authoring.Behaviours;
 using GameMeanMachine.Unity.GabTab.Authoring.Behaviours.Interactors;
 using GGJUIO2020.Client.Authoring.Behaviours.Protocols;
+using GGJUIO2020.Types.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +27,9 @@ namespace GGJUIO2020.Client
 
                     [SerializeField]
                     private LoginProtocolClientSide loginProtocol;
+
+                    [SerializeField]
+                    private MainProtocolClientSide mainProtocol;
 
                     private NetworkClient registerClient;
                     private NetworkClient loginClient;
@@ -170,6 +174,92 @@ namespace GGJUIO2020.Client
                                 NullInteractor nullInteractor = (NullInteractor) manager["null"];
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
                                     .Clear().Write($"Hubo un error interno!!!!!!").Wait().End());
+                            });
+                            OpenWelcomeCanvas();
+                        };
+                        mainProtocol.CurrentMission += async (provinceIndex, questionType) =>
+                        {
+                            QueueInteraction(async (manager, message) =>
+                            {
+                                NullInteractor nullInteractor = (NullInteractor) manager["null"];
+                                await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
+                                    .Clear().Write(ProvinceData.Data[provinceIndex].CurrentMission(questionType)).Wait().End());
+                            });
+                            OpenWelcomeCanvas();
+                        };
+                        mainProtocol.AlreadyComplete += async () =>
+                        {
+                            QueueInteraction(async (manager, message) =>
+                            {
+                                NullInteractor nullInteractor = (NullInteractor) manager["null"];
+                                await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
+                                    .Clear().Write("Ya estás completo en todas tus misiones :)").Wait().End());
+                            });
+                            OpenWelcomeCanvas();
+                        };
+                        mainProtocol.Info += async provinceIndex =>
+                        {
+                            QueueInteraction(async (manager, message) =>
+                            {
+                                NullInteractor nullInteractor = (NullInteractor) manager["null"];
+                                ButtonsInteractor buttonsInteractor = (ButtonsInteractor) manager["informant"];
+                                await buttonsInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
+                                    .Clear().Write($"Bienvenido a la provincia de {ProvinceData.Data[provinceIndex].Name}. " +
+                                                   $"Hay algo que te gustaría aprender de aquí?").Wait().End());
+                                while (true)
+                                {
+                                    bool saidNo = false;
+                                    switch (buttonsInteractor.Result)
+                                    {
+                                        case "no":
+                                            saidNo = true;
+                                            await nullInteractor.RunInteraction(message,
+                                                new InteractiveMessage.PromptBuilder()
+                                                    .Clear().Write($"Vuelve cuando quieras!").Wait().End());
+                                            break;
+                                        case "cuisine":
+                                        case "regional":
+                                        case "culture":
+                                            await nullInteractor.RunInteraction(message,
+                                                new InteractiveMessage.PromptBuilder()
+                                                    .Clear().Write(ProvinceData.Data[provinceIndex].Info(buttonsInteractor.Result)).Wait().End());
+                                            await nullInteractor.RunInteraction(message,
+                                                new InteractiveMessage.PromptBuilder()
+                                                    .Clear().Write($"Te interesaria saber algo mas?").Wait().End());
+                                            break;
+                                    }
+                                    if (saidNo) break;
+                                }
+                            });
+                            OpenWelcomeCanvas();
+                        };
+                        mainProtocol.StepComplete += async provinceIndex =>
+                        {
+                            QueueInteraction(async (manager, message) =>
+                            {
+                                NullInteractor nullInteractor = (NullInteractor) manager["null"];
+                                await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
+                                    .Clear().Write("Felicidades! Encontraste el lugar correcto!. Ve por tu próxima misión").Wait().End());
+                            });
+                            OpenWelcomeCanvas();
+                        };
+                        mainProtocol.YouJustCompleted += async () =>
+                        {
+                            QueueInteraction(async (manager, message) =>
+                            {
+                                NullInteractor nullInteractor = (NullInteractor) manager["null"];
+                                await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
+                                    .Clear().Write("Felicidades! Acabas de completar todas tus misiones!").Wait().End());
+                            });
+                            OpenWelcomeCanvas();
+                        };
+                        mainProtocol.TheyJustCompleted += async (nickname) =>
+                        {
+                            QueueInteraction(async (manager, message) =>
+                            {
+                                NullInteractor nullInteractor = (NullInteractor) manager["null"];
+                                await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
+                                    .Clear().Write($"{nickname} acaba de completar todas tus misiones!").Wait().End());
                             });
                             OpenWelcomeCanvas();
                         };
