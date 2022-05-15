@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3970158857309028858, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
       propertyPath: m_Name
-      value: Central
+      value: CentralMap
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
