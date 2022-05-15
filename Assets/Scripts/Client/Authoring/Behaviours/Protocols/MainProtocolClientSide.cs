@@ -8,6 +8,7 @@ using AlephVault.Unity.Meetgard.Protocols;
 using AlephVault.Unity.Meetgard.Samples.Chat;
 using AlephVault.Unity.Meetgard.Types;
 using AlephVault.Unity.RemoteStorage.Types.Results;
+using AlephVault.Unity.Support.Authoring.Behaviours;
 using AlephVault.Unity.Support.Utils;
 using GameMeanMachine.Unity.NetRose.Authoring.Behaviours.Client;
 using GGJUIO2020.Server.Authoring.Behaviours.External;
@@ -27,6 +28,7 @@ namespace GGJUIO2020.Client
         {
             namespace Protocols
             {
+                [RequireComponent(typeof(Throttler))]
                 [RequireComponent(typeof(PingProtocolClientSide))]
                 [RequireComponent(typeof(NetRoseProtocolClientSide))]
                 [RequireComponent(typeof(LoginProtocolClientSide))]
@@ -38,6 +40,9 @@ namespace GGJUIO2020.Client
                     private Func<Task> MoveDown;
                     private Func<Task> Talk;
 
+                    private LoginProtocolClientSide loginProtocol;
+                    private Throttler throttler;
+
                     public event Func<Task> AlreadyComplete;
                     public event Func<int, string, Task> CurrentMission;
                     public event Func<int, Task> Info;
@@ -46,6 +51,12 @@ namespace GGJUIO2020.Client
                     public event Func<string, Task> TheyJustCompleted; 
 
                     protected override void Setup()
+                    {
+                        throttler = GetComponent<Throttler>();
+                        loginProtocol = GetComponent<LoginProtocolClientSide>();
+                    }
+
+                    protected override void Initialize()
                     {
                         MoveLeft = MakeSender("MoveLeft");
                         MoveRight = MakeSender("MoveRight");
@@ -90,6 +101,68 @@ namespace GGJUIO2020.Client
                             Debug.Log($"{nickname} : they just completed all the missions");
                             await (TheyJustCompleted?.InvokeAsync(nickname) ?? Task.CompletedTask);
                         });
+                    }
+                    
+                    public void TalkNPC()
+                    {
+                        if (loginProtocol.LoggedIn) throttler.Throttled(() => { RunInMainThread(Talk); });
+                    }
+                    
+                    public void WalkDown()
+                    {
+                        if (loginProtocol.LoggedIn) throttler.Throttled(() => { RunInMainThread(MoveDown); });
+                    }
+
+                    public void WalkLeft()
+                    {
+                        if (loginProtocol.LoggedIn) throttler.Throttled(() => { RunInMainThread(MoveLeft); });
+                    }
+
+                    public void WalkRight()
+                    {
+                        if (loginProtocol.LoggedIn) throttler.Throttled(() => { RunInMainThread(MoveRight); });
+                    }
+
+                    public void WalkUp()
+                    {
+                        if (loginProtocol.LoggedIn) throttler.Throttled(() => { RunInMainThread(MoveUp); });
+                    }
+                    
+                    void Update()
+                    {
+                        if (loginProtocol.LoggedIn)
+                        {
+                            if (Input.GetKey(KeyCode.Space))
+                            {
+                                Debug.Log("Client::Talking ...");
+                                Talk();
+                                Debug.Log("Client::Talked.");
+                            }
+                            if (Input.GetKey(KeyCode.LeftArrow))
+                            {
+                                Debug.Log("Client::Moving < ...");
+                                WalkLeft();
+                                Debug.Log("Client::Moved <.");
+                            }
+                            else if (Input.GetKey(KeyCode.UpArrow))
+                            {
+                                Debug.Log("Client::Moving ^ ...");
+                                WalkUp();
+                                Debug.Log("Client::Moved ^.");
+                            }
+                            else if (Input.GetKey(KeyCode.DownArrow))
+                            {
+                                Debug.Log("Client::Moving v ...");
+                                WalkDown();
+                                Debug.Log("Client::Moved v.");
+                            }
+                            else if (Input.GetKey(KeyCode.RightArrow))
+                            {
+                                Debug.Log("Client::Moving > ...");
+                                WalkRight();
+                                Debug.Log("Client::Moved >.");
+                            }
+                        }
                     }
                 }
             }
