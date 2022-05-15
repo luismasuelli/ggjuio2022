@@ -26,18 +26,18 @@ namespace GGJUIO2020.Server
                     LoginProtocolDefinition, Nothing, LoginFailed, Kicked, string, String, UserAccount
                 >
                 {
-                    private Storage storage;
+                    public Storage Storage { get; private set; }
                     
                     protected override void Setup()
                     {
-                        storage = GetComponent<Storage>();
+                        Storage = GetComponent<Storage>();
                     }
 
                     protected override async Task<UserAccount> FindAccount(string id)
                     {
                         try
                         {
-                            return new UserAccount(await RunInMainThread(() => storage.GetUserByLogin(id)));
+                            return new UserAccount(await RunInMainThread(() => Storage.GetUserByLogin(id)));
                         }
                         catch (Storage.UserException e)
                         {

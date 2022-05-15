@@ -44,7 +44,8 @@ namespace GGJUIO2020.Server
                                             {
                                                 MapObject mapObj = obj.GetComponent<MapObject>();
                                                 mapObj.Attach(map, INFORMANT_X, INFORMANT_Y, true);
-                                                // TODO: Look for the informant behaviour and link the provinceIndex
+                                                InformantServerSide informant = obj.GetComponent<InformantServerSide>();
+                                                informant.cityIndex = cityIndex;
                                             }
                                         );
                                     }

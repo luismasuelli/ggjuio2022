@@ -46,7 +46,7 @@ namespace GGJUIO2020.Server
                                     }
                                     catch (KeyNotFoundException e)
                                     {
-                                        Console.WriteLine("Wrong prefab index! Invalid for referee");
+                                        Debug.Log("Wrong prefab index! Invalid for referee");
                                         throw;
                                     }
                                 };

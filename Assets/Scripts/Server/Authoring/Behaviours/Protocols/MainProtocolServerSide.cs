@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
+using AlephVault.Unity.Binary.Wrappers;
 using AlephVault.Unity.Meetgard.Authoring.Behaviours.Server;
 using AlephVault.Unity.Meetgard.Types;
 using GameMeanMachine.Unity.NetRose.Authoring.Behaviours.Server;
@@ -12,6 +14,7 @@ using GGJUIO2020.Server.Authoring.Behaviours.Protocols.Models;
 using GGJUIO2020.Types.Protocols.Definitions;
 using GGJUIO2020.Types.Protocols.Messages;
 using UnityEngine;
+using String = AlephVault.Unity.Binary.Wrappers.String;
 
 
 namespace GGJUIO2020.Server
@@ -34,6 +37,13 @@ namespace GGJUIO2020.Server
                     private Dictionary<ulong, PlayerCharacterServerSide> objects = new Dictionary<ulong, PlayerCharacterServerSide>();
                     private Dictionary<ulong, float> times = new Dictionary<ulong, float>();
 
+                    private Func<ulong, CurrentMission, Task> CurrentMissionSender;
+                    private Func<ulong, Task> AlreadyCompleteSender;
+                    private Func<ulong, Int, Task> InfoSender;
+                    private Func<ulong, Int, Task> StepCompleteSender;
+                    private Func<ulong, Task> YouJustCompletedSender;
+                    private Func<IEnumerable<ulong>, String, Dictionary<ulong, Task>> TheyJustCompletedBroadcaster;
+
                     protected override void Setup()
                     {
                         base.Setup();
@@ -45,7 +55,16 @@ namespace GGJUIO2020.Server
                     {
                         ushort PLAYER_X = 13;
                         ushort PLAYER_Y = 3;
-                        
+
+                        CurrentMissionSender = MakeSender<CurrentMission>("CurrentMission");
+                        AlreadyCompleteSender = MakeSender("AlreadyComplete"); // Referee response.
+                        // Informant.
+                        InfoSender = MakeSender<Int>("Info"); // Informant response.
+                        StepCompleteSender = MakeSender<Int>("StepComplete"); // Informant response.
+                        // Notifications.
+                        YouJustCompletedSender = MakeSender("YouJustCompleted"); // Server notification.
+                        TheyJustCompletedBroadcaster = MakeBroadcaster<String>("SomeoneJustCompleted"); // Server notification.
+
                         base.Initialize();
                         NetRoseScopeServerSide centralScope = netRoseProtocolServerSide.ScopesProtocolServerSide
                             .LoadedScopes[0].GetComponent<NetRoseScopeServerSide>();
@@ -152,6 +171,39 @@ namespace GGJUIO2020.Server
                                 obj.GetComponent<TalkSender>().Talk();
                             });
                         });
+                    }
+
+                    public void SendCurrentMission(ulong clientId, int cityIndex, string questionType)
+                    {
+                        _ = CurrentMissionSender(clientId, new CurrentMission()
+                        {
+                            CityIndex = cityIndex, QuestionType = questionType
+                        });
+                    }
+
+                    public void SendAlreadyComplete(ulong clientId)
+                    {
+                        _ = AlreadyCompleteSender(clientId);
+                    }
+
+                    public void SendInfo(ulong clientId, int cityIndex)
+                    {
+                        _ = InfoSender(clientId, (Int) cityIndex);
+                    }
+
+                    public void SendStepComplete(ulong clientId, int cityIndex)
+                    {
+                        _ = StepCompleteSender(clientId, (Int) cityIndex);
+                    }
+
+                    public void SendYouJustCompleted(ulong clientId)
+                    {
+                        _ = YouJustCompletedSender(clientId);
+                    }
+
+                    public void BroadcastTheyJustCompleted(String nickname)
+                    {
+                        _ = TheyJustCompletedBroadcaster(null, nickname);
                     }
                 }
             }
