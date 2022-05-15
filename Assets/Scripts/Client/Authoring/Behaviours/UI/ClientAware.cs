@@ -225,6 +225,7 @@ namespace GGJUIO2020.Client
                     private async void OnLogoutClick()
                     {
                         await loginProtocol.Logout();
+                        OpenWelcomeCanvas();
                     }
 
                     private void OpenWelcomeCanvas()
