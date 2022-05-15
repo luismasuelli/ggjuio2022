@@ -4,6 +4,7 @@ using System.Diagnostics;
 using AlephVault.Unity.Meetgard.Authoring.Behaviours.Server;
 using AlephVault.Unity.Meetgard.Types;
 using GameMeanMachine.Unity.NetRose.Authoring.Behaviours.Server;
+using GameMeanMachine.Unity.WindRose.Authoring.Behaviours.Entities.Objects;
 using GGJUIO2020.Server.Authoring.Behaviours.Protocols.Models;
 using GGJUIO2020.Types.Protocols.Definitions;
 using UnityEngine;
@@ -41,6 +42,13 @@ namespace GGJUIO2020.Server
                             // Store the account data.
                             loginProtocolServerSide.SetSessionData(clientId, "account", account);
                             // Instantiate the prefab for the player.
+                            var obj = netRoseProtocolServerSide.InstantiateHere(
+                                "referee", async (obj) =>
+                                {
+                                    MapObject mapObj = obj.GetComponent<MapObject>();
+                                    mapObj.Attach(map, 13, 3, true);
+                                }
+                            );
                             // Put it in the appropriate scope, and synchronize.
                         };
                         loginProtocolServerSide.OnSessionTerminating += async (clientId, account) =>
