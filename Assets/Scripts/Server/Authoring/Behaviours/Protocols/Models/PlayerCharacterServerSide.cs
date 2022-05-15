@@ -1,6 +1,7 @@
 using System;
 using GameMeanMachine.Unity.NetRose.Authoring.Behaviours.Client;
 using GameMeanMachine.Unity.NetRose.Authoring.Behaviours.Server;
+using TMPro;
 using String = AlephVault.Unity.Binary.Wrappers.String;
 
 
@@ -20,8 +21,28 @@ namespace GGJUIO2020.Server
                     /// </summary>
                     public class PlayerCharacterServerSide : NetRoseModelServerSide<String, String>
                     {
+                        private TMP_Text label;
+
+                        private TMP_Text GetLabel()
+                        {
+                            if (!label) label = GetComponentInChildren<TMP_Text>();
+                            return label;
+                        }
+
                         private string oldNickname;
-                        public string NickName;
+
+                        public string NickName
+                        {
+                            set
+                            {
+                                // WARNING: THIS MUST ONLY BE CALLED ON INSTANTIATION.
+                                GetLabel().text = value;
+                            }
+                            get
+                            {
+                                return GetLabel().text;
+                            }
+                        }
                         
                         protected override String GetInnerFullData(ulong connectionId)
                         {
@@ -31,14 +52,6 @@ namespace GGJUIO2020.Server
                         protected override String GetInnerRefreshData(ulong connectionId, string context)
                         {
                             return (String)NickName;
-                        }
-
-                        private void Update()
-                        {
-                            if (oldNickname != NickName)
-                            {
-                                // TODO refresh the nickname in the label.
-                            }
                         }
                     }
                 }
