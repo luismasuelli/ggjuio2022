@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7888867160851304473
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2460027827269728352, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: Target
+      value: azuay-house
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472278615558062431, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: teleportKey
+      value: azuay-door
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793551147609604314, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: teleportKey
+      value: azuay-exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037790026012575984, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037790026012575984, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037790026012575984, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -21
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037790026012575984, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037790026012575984, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037790026012575984, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037790026012575984, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037790026012575984, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037790026012575984, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037790026012575984, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037790026012575984, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037790026012575998, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: m_Name
+      value: AzuayOuterServerScope
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037790027124839325, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: m_Text
+      value: Azuay
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603153987683292993, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}
+      propertyPath: Target
+      value: azuay-gate
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c745f1b1b293d22e4ad93667442073f9, type: 3}

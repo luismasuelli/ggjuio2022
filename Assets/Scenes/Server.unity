@@ -237,7 +237,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b101357c322ea6a4dbe7a2e4df94f908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultScopePrefabs: []
+  defaultScopePrefabs:
+  - {fileID: 4927727265459087293, guid: 2679992d7107af97e886bf094cc4b628, type: 3}
+  - {fileID: 6017699470129146516, guid: 5d87a17c1b704e584be2ac49dc895d7b, type: 3}
+  - {fileID: 8551271804334537698, guid: 4aa62219c22982bf49e32f0ca7ea8a25, type: 3}
+  - {fileID: 4307865037402724172, guid: b40e171c52dae509c9a58dedbf50314e, type: 3}
+  - {fileID: 7604241184283564777, guid: e79aeba62362abad08ebeb400f0cc1e9, type: 3}
+  - {fileID: 8576406541936229553, guid: 8558583c3dcd094c4a3a619c2f450cd2, type: 3}
+  - {fileID: 5277949191006464421, guid: 90fc1d255aea3a91b8e8f50062b63b87, type: 3}
+  - {fileID: 5296617385786056068, guid: 5481daac3938547d2b2b92e567feccee, type: 3}
+  - {fileID: 2790828612434992054, guid: 891cf7206b64a18999e7973ab48dc3c7, type: 3}
+  - {fileID: 7627624700664620046, guid: 1e09e3207be04f4cda1723d127c94b0a, type: 3}
+  - {fileID: 8189094124553270155, guid: a82510693c94108bb921600cff5a538e, type: 3}
+  - {fileID: 7057009012203762306, guid: 25524654d2e1777588b398256a45d1d0, type: 3}
+  - {fileID: 8431092310878038575, guid: 67bae17889220aefd939952958134ca8, type: 3}
+  - {fileID: 7187070717186077186, guid: febb2dc6dbc5bfd17962315785afc1c6, type: 3}
+  - {fileID: 2445790653148826801, guid: 89f7ea770661491a4b0d19c865283d38, type: 3}
+  - {fileID: 2683095462924855438, guid: b862bd1720d1f2953ad9f4d641cd9042, type: 3}
+  - {fileID: 6858770719534705517, guid: b32e0774bfda8ca60a3b7c6601161f46, type: 3}
+  - {fileID: 7955915459919922762, guid: ba628363a67d4d90c9161aca10ef7874, type: 3}
+  - {fileID: 2279707520651394039, guid: 1bf097010da892581924f7fac996ba30, type: 3}
   extraScopePrefabs: []
   objectPrefabs: []
   fullDataMaxSize: 1012
