@@ -37,7 +37,7 @@ namespace GGJUIO2020.Server
                     {
                         try
                         {
-                            return new UserAccount(await storage.GetUserByLogin(id));
+                            return new UserAccount(await RunInMainThread(() => storage.GetUserByLogin(id)));
                         }
                         catch (Storage.UserException e)
                         {
