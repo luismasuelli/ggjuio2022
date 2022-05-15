@@ -21,7 +21,7 @@ namespace GGJUIO2020.Server
                     namespace ScopeAddOns
                     {
                         [RequireComponent(typeof(NetRoseScopeServerSide))]
-                        public class CentralScope : MonoBehaviour
+                        public class RefereeSetup : MonoBehaviour
                         {
                             private NetRoseScopeServerSide netRoseScopeServerSide;
                             

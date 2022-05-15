@@ -44,7 +44,7 @@ namespace GGJUIO2020.Server
                     ///     asynchronous code or add fade effects.
                     /// </remarks>
                     [RequireComponent(typeof(TriggerPlatform))]
-                    public class GlobalTeleporterModelServerSide : NetRoseModelServerSide<Nothing, Nothing>
+                    public class GlobalTeleporter : MonoBehaviour
                     {
                         private static Nothing nothing = new Nothing();
                         
@@ -63,7 +63,7 @@ namespace GGJUIO2020.Server
                         private void OnWalkedIntoTeleporter(MapObject objectToBeTeleported, MapObject thisTeleporter, int x, int y)
                         {
                             // Debug.LogFormat("{3} {0} walked into {1} and will be teleported to {2}", objectToBeTeleported, this, Target, System.DateTime.Now);
-                            if (enabled && !string.IsNullOrEmpty(Target) && GlobalTeleportTargetModelServerSide.TryGetTarget(Target, out GlobalTeleportTargetModelServerSide target))
+                            if (enabled && !string.IsNullOrEmpty(Target) && GlobalTeleportTarget.TryGetTarget(Target, out GlobalTeleportTarget target))
                             {
                                 MapObject tgObject = target.GetComponent<MapObject>();
                                 if (tgObject.ParentMap)
@@ -97,7 +97,7 @@ namespace GGJUIO2020.Server
                         /// <param name="objectToBeTeleported">The object intending to be teleported</param>
                         /// <param name="teleportTarget">The teleport target</param>
                         /// <returns>Whether the teleport can occur</returns>
-                        protected virtual bool CanTeleport(MapObject objectToBeTeleported, GlobalTeleportTargetModelServerSide teleportTarget)
+                        protected virtual bool CanTeleport(MapObject objectToBeTeleported, GlobalTeleportTarget teleportTarget)
                         {
                             return true;
                         }
@@ -107,7 +107,7 @@ namespace GGJUIO2020.Server
                          *   callback of a process that can be deferred by the user (DoTeleport). Also updates the camera appropriately,
                          *   if now using different providers.
                          */
-                        private void ObjectTeleportOperation(MapObject objectToBeTeleported, GlobalTeleportTargetModelServerSide teleportTarget, MapObject teleportTargetObject)
+                        private void ObjectTeleportOperation(MapObject objectToBeTeleported, GlobalTeleportTarget teleportTarget, MapObject teleportTargetObject)
                         {
                             ushort tgX = teleportTargetObject.X;
                             ushort tgY = teleportTargetObject.Y;
@@ -142,19 +142,9 @@ namespace GGJUIO2020.Server
                         /// <param name="objectToBeTeleported">The object being teleported.</param>
                         /// <param name="teleportTarget">The target of the teleport.</param>
                         /// <param name="teleportTargetObject">The underlying object of that target.</param>
-                        protected virtual void DoTeleport(Action teleport, MapObject objectToBeTeleported, GlobalTeleportTargetModelServerSide teleportTarget, MapObject teleportTargetObject)
+                        protected virtual void DoTeleport(Action teleport, MapObject objectToBeTeleported, GlobalTeleportTarget teleportTarget, MapObject teleportTargetObject)
                         {
                             teleport();
-                        }
-                        
-                        protected override Nothing GetInnerFullData(ulong connection)
-                        {
-                            return nothing;
-                        }
-
-                        protected override Nothing GetInnerRefreshData(ulong connectionId, string context)
-                        {
-                            throw new NotImplementedException();
                         }
                     }
                 }

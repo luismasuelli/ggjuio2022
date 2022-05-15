@@ -18,14 +18,14 @@ namespace GGJUIO2020.Server
                 namespace Models
                 {
                     /// <summary>
-                    ///   The end side of a <see cref="LocalTeleporter"/>. See that
+                    ///   The end side of a <see cref="GlobalTeleporter"/>. See that
                     ///     class for more informaation.
                     /// </summary>
                     [RequireComponent(typeof(TriggerPlatform))]
-                    public class GlobalTeleportTargetModelServerSide : NetRoseModelServerSide<Nothing, Nothing>
+                    public class GlobalTeleportTarget : MonoBehaviour
                     {
-                        private static Dictionary<string, GlobalTeleportTargetModelServerSide> targets =
-                            new Dictionary<string, GlobalTeleportTargetModelServerSide>();
+                        private static Dictionary<string, GlobalTeleportTarget> targets =
+                            new Dictionary<string, GlobalTeleportTarget>();
                         
                         [SerializeField]
                         private string teleportKey;
@@ -53,26 +53,14 @@ namespace GGJUIO2020.Server
                             }
 
                             targets[teleportKey] = this;
-                            base.Awake();
                         }
 
                         private void OnDestroy()
                         {
-                            base.OnDestroy();
                             targets.Remove(teleportKey);
                         }
-
-                        protected override Nothing GetInnerFullData(ulong connectionId)
-                        {
-                            throw new System.NotImplementedException();
-                        }
-
-                        protected override Nothing GetInnerRefreshData(ulong connectionId, string context)
-                        {
-                            throw new System.NotImplementedException();
-                        }
-
-                        public static bool TryGetTarget(string key, out GlobalTeleportTargetModelServerSide target)
+                        
+                        public static bool TryGetTarget(string key, out GlobalTeleportTarget target)
                         {
                             return targets.TryGetValue(key, out target);
                         }
