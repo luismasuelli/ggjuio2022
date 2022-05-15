@@ -64,10 +64,9 @@ namespace GGJUIO2020.Client
                     /// </summary>
                     public event Func<Task> OnPasswordMismatch;
                     
-                    protected override void Setup()
+                    protected override void Initialize()
                     {
-                        base.Setup();
-                        SendRegister = MakeSender<UserBody>("Login:Community");
+                        SendRegister = MakeSender<UserBody>("Register");
                     }
 
                     protected override void SetIncomingMessageHandlers()

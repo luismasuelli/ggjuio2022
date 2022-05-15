@@ -37,13 +37,6 @@ namespace GGJUIO2020.Server
                     protected override void Setup()
                     {
                         storage = GetComponent<Storage>();
-                        Ok = MakeSender("Ok");
-                        Duplicate = MakeSender("Duplicate");
-                        PasswordMismatch = MakeSender("PasswordMismatch");
-                        Invalid = MakeSender("Invalid");
-                        UnexpectedError = MakeSender("UnexpectedError");
-                        SendWelcome = MakeSender("Welcome");
-                        SendTimeout = MakeSender("Timeout");
                     }
 
                     /// <summary>
@@ -61,6 +54,13 @@ namespace GGJUIO2020.Server
 
                     protected override void Initialize()
                     {
+                        Ok = MakeSender("Ok");
+                        Duplicate = MakeSender("Duplicate");
+                        PasswordMismatch = MakeSender("PasswordMismatch");
+                        Invalid = MakeSender("Invalid");
+                        UnexpectedError = MakeSender("UnexpectedError");
+                        SendWelcome = MakeSender("Welcome");
+                        SendTimeout = MakeSender("Timeout");
                         registerTimeoutCoroutine = StartCoroutine(RegisterTimeoutCoroutine());
                     }
 
@@ -145,9 +145,11 @@ namespace GGJUIO2020.Server
                     {
                         AddIncomingMessageHandler<UserBody>("Register", async (protocol, clientId, body) =>
                         {
-                            if (body.PasswordsMatch())
+                            if (!body.PasswordsMatch())
                             {
                                 await PasswordMismatch(clientId);
+                                // Then, close the client.
+                                server.Close(clientId);
                                 return;
                             }
                             
@@ -160,8 +162,11 @@ namespace GGJUIO2020.Server
 
                             try
                             {
-                                await storage.CreateUser(user);
-                                Ok(clientId);
+                                await RunInMainThread(async () =>
+                                {
+                                    await storage.CreateUser(user);
+                                });
+                                await Ok(clientId);
                             }
                             catch (Storage.UserException e)
                             {
@@ -193,17 +198,19 @@ namespace GGJUIO2020.Server
 
                     private QuestItem[] GenerateQuest()
                     {
+                        // Make a random generator for the question types.
+                        // Also a standard random for the ranges.
+                        Random<string> questions = new Random<string>(new[] {"cuisine", "regional", "culture"});
+                        System.Random r = new System.Random();
+                        
                         // Generate and shuffle the cities.
                         int[] cities = {0, 1, 2, 3, 4, 5, 6, 7, 8};
                         for (int i = 0; i < 9; i++) {
                             int temp = cities[i];
-                            int randomIndex = UnityEngine.Random.Range(i, 9);
+                            int randomIndex = r.Next(i, 9);
                             cities[i] = cities[randomIndex];
                             cities[randomIndex] = temp;
                         }
-
-                        // Make a random generator for the question types.
-                        Random<string> questions = new Random<string>(new[] {"cuisine", "regional", "culture"});
 
                         QuestItem[] questItems = new QuestItem[9];
                         for (int i = 0; i < 9; i++)
