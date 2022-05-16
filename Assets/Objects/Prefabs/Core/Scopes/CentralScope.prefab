@@ -52,6 +52,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2517627484868324623}
     m_Modifications:
+    - target: {fileID: 3970158856859545961, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 3442393621291656334}
+    - target: {fileID: 3970158856859545965, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: solidness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970158857133607668, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 3442393621291656334}
+    - target: {fileID: 3970158857133608200, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: solidness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970158857217202123, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 3442393621291656334}
+    - target: {fileID: 3970158857217202127, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: solidness
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3970158857309028857, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -100,6 +124,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: CentralMap
       objectReference: {fileID: 0}
+    - target: {fileID: 3970158857528603696, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 3442393621291656334}
+    - target: {fileID: 3970158857528603700, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: solidness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970158857657943808, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: solidness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970158857657943820, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 3442393621291656334}
+    - target: {fileID: 3970158857727998657, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 3442393621291656334}
+    - target: {fileID: 3970158857727998661, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: solidness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970158857813432282, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: solidness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970158857835174955, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 3442393621291656334}
+    - target: {fileID: 3970158857835174959, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: solidness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970158858495804034, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 3442393621291656334}
+    - target: {fileID: 3970158858495804038, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+      propertyPath: solidness
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
 --- !u!4 &3442393622869799594 stripped
@@ -107,3 +175,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3970158857309028857, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
   m_PrefabInstance: {fileID: 1791588986100118355}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3442393621291656334 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3970158857813432285, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
+  m_PrefabInstance: {fileID: 1791588986100118355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c86cdb8f375a8c4e9953119597fc921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
