@@ -24,10 +24,14 @@ namespace GGJUIO2020.Server
                         public class RefereeSetup : MonoBehaviour
                         {
                             private NetRoseScopeServerSide netRoseScopeServerSide;
-                            
+
                             private void Awake()
                             {
                                 netRoseScopeServerSide = GetComponent<NetRoseScopeServerSide>();
+                            }
+
+                            private void Start()
+                            {
                                 netRoseScopeServerSide.ScopeServerSide.OnLoad += async () =>
                                 {
                                     Map map = GetComponentInChildren<Map>();
@@ -37,9 +41,10 @@ namespace GGJUIO2020.Server
                                     try
                                     {
                                         var obj = netRoseScopeServerSide.NetRoseProtocolServerSide.InstantiateHere(
-                                            "referee", async (obj) =>
+                                            2, async (obj) =>
                                             {
                                                 MapObject mapObj = obj.GetComponent<MapObject>();
+                                                mapObj.Initialize();
                                                 mapObj.Attach(map, REFEREE_X, REFEREE_Y, true);
                                             }
                                         );

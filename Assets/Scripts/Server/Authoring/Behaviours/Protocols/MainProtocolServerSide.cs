@@ -66,18 +66,18 @@ namespace GGJUIO2020.Server
                         TheyJustCompletedBroadcaster = MakeBroadcaster<String>("SomeoneJustCompleted"); // Server notification.
 
                         base.Initialize();
-                        NetRoseScopeServerSide centralScope = netRoseProtocolServerSide.ScopesProtocolServerSide
-                            .LoadedScopes[0].GetComponent<NetRoseScopeServerSide>();
-                        Map centralMap = centralScope.GetComponent<Scope>()[0];
                         loginProtocolServerSide.OnSessionStarting += async (clientId, account) =>
                         {
                             _ = RunInMainThread(() =>
                             {
+                                NetRoseScopeServerSide centralScope = netRoseProtocolServerSide.ScopesProtocolServerSide
+                                    .LoadedScopes[1].GetComponent<NetRoseScopeServerSide>();
+                                Map centralMap = centralScope.GetComponent<Scope>()[0];
                                 // Store the account data.
                                 loginProtocolServerSide.SetSessionData(clientId, "account", account);
                                 // Instantiate the prefab for the player.
                                 var obj = netRoseProtocolServerSide.InstantiateHere(
-                                    "player", async (obj) =>
+                                    0, async (obj) =>
                                     {
                                         PlayerCharacterServerSide objSS = obj.GetComponent<PlayerCharacterServerSide>();
                                         // Give it the required connection id.
@@ -87,6 +87,7 @@ namespace GGJUIO2020.Server
                                         times[clientId] = 0;
                                         // And attach it. This will causa a spawn.
                                         MapObject mapObj = obj.GetComponent<MapObject>();
+                                        mapObj.Initialize();
                                         mapObj.Attach(centralMap, PLAYER_X, PLAYER_Y, true);
                                     }
                                 );
@@ -95,14 +96,17 @@ namespace GGJUIO2020.Server
                         };
                         loginProtocolServerSide.OnSessionTerminating += async (clientId, account) =>
                         {
-                            if (objects.TryGetValue(clientId, out PlayerCharacterServerSide objSS))
+                            _ = RunInMainThread(() =>
                             {
-                                // It will de-spawn and destroy the object.
-                                Destroy(objSS.MapObject.gameObject);
-                                // Then, unregistering it.
-                                objects.Remove(clientId);
-                                times.Remove(clientId);
-                            }
+                                if (objects.TryGetValue(clientId, out PlayerCharacterServerSide objSS))
+                                {
+                                    // It will de-spawn and destroy the object.
+                                    Destroy(objSS.MapObject.gameObject);
+                                    // Then, unregistering it.
+                                    objects.Remove(clientId);
+                                    times.Remove(clientId);
+                                }
+                            });
                         };
                     }
 
