@@ -82,6 +82,7 @@ namespace GGJUIO2020.Server
                                         PlayerCharacterServerSide objSS = obj.GetComponent<PlayerCharacterServerSide>();
                                         // Give it the required connection id.
                                         objSS.Owner = clientId;
+                                        objSS.NickName = account.NickName;
                                         // Add it to the dictionary.
                                         objects[clientId] = objSS;
                                         times[clientId] = 0;
