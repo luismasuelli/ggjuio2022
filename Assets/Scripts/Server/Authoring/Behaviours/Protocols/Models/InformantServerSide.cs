@@ -35,6 +35,7 @@ namespace GGJUIO2020.Server
                             base.Start();
                             GetComponent<TalkReceiver>().onTalkReceived.AddListener((obj) =>
                             {
+                                Debug.Log("On Talk Received (informant)");
                                 LoginProtocolServerSide loginProtocol = Protocol.GetComponent<LoginProtocolServerSide>();
                                 MainProtocolServerSide mainProtocol = Protocol.GetComponent<MainProtocolServerSide>();
                                 PlayerCharacterServerSide objSS = obj.GetComponent<PlayerCharacterServerSide>();
