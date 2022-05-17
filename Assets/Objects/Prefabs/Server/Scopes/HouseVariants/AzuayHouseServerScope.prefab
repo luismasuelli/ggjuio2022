@@ -1,19 +1,39 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7955915458359733765
+--- !u!1001 &2445790654809957630
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 448003357, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 448003357, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 448003358, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
       propertyPath: teleportKey
-      value: napo-house
+      value: azuay-house
       objectReference: {fileID: 0}
     - target: {fileID: 448003359, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
       propertyPath: Target
-      value: napo-door
+      value: azuay-door
+      objectReference: {fileID: 0}
+    - target: {fileID: 448003361, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
+      propertyPath: solidness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 448003364, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
+      propertyPath: m_Center.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 448003364, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
+      propertyPath: m_Center.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5600417864632492410, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
       propertyPath: m_RootOrder
@@ -21,7 +41,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5600417864632492410, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5600417864632492410, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -61,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5600417864632492411, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
       propertyPath: m_Name
-      value: NapoHouseServerScope Variant
+      value: AzuayHouseServerScope
       objectReference: {fileID: 0}
     - target: {fileID: 5600417864835271193, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
       propertyPath: m_LocalPosition.x

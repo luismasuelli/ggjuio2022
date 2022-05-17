@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 448003357, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 448003357, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 448003358, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
       propertyPath: teleportKey
       value: galapagos-house
@@ -14,6 +22,18 @@ PrefabInstance:
     - target: {fileID: 448003359, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
       propertyPath: Target
       value: galapagos-door
+      objectReference: {fileID: 0}
+    - target: {fileID: 448003361, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
+      propertyPath: solidness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 448003364, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
+      propertyPath: m_Center.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 448003364, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
+      propertyPath: m_Center.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5600417864632492410, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
       propertyPath: m_RootOrder

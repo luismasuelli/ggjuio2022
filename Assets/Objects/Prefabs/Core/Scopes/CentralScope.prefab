@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 3970158856859545961, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
       propertyPath: objectStrategy
       value: 
-      objectReference: {fileID: 3442393621291656334}
+      objectReference: {fileID: 0}
     - target: {fileID: 3970158856859545965, guid: aa662135006be16ccb66d12e02f21a36, type: 3}
       propertyPath: solidness
       value: 1

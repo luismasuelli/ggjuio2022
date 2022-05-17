@@ -258,7 +258,10 @@ MonoBehaviour:
   - {fileID: 7955915459919922762, guid: ba628363a67d4d90c9161aca10ef7874, type: 3}
   - {fileID: 2279707520651394039, guid: 1bf097010da892581924f7fac996ba30, type: 3}
   extraScopePrefabs: []
-  objectPrefabs: []
+  objectPrefabs:
+  - {fileID: 9127998090600312817, guid: 2a77b99f9d6b8aba587331f746cc81bb, type: 3}
+  - {fileID: 8541201318405691232, guid: b6dfe36da2222ae408cd45c018589b27, type: 3}
+  - {fileID: 6471011188154636591, guid: 658e7d310b858932b8275362a90041d4, type: 3}
   fullDataMaxSize: 1012
 --- !u!114 &329695847
 MonoBehaviour:

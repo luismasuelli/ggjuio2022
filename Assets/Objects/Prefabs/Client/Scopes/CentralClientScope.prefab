@@ -75,9 +75,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3442393621242874258, guid: 5eee0dc8bc47086d39b95099fadfa0b8, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 722694583869467603}
+    - target: {fileID: 3442393621269917560, guid: 5eee0dc8bc47086d39b95099fadfa0b8, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 722694583869467603}
+    - target: {fileID: 3442393621291656341, guid: 5eee0dc8bc47086d39b95099fadfa0b8, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 722694583869467603}
+    - target: {fileID: 3442393621683024337, guid: 5eee0dc8bc47086d39b95099fadfa0b8, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 722694583869467603}
+    - target: {fileID: 3442393622245540410, guid: 5eee0dc8bc47086d39b95099fadfa0b8, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 722694583869467603}
+    - target: {fileID: 3442393622508353959, guid: 5eee0dc8bc47086d39b95099fadfa0b8, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 722694583869467603}
+    - target: {fileID: 3442393622827410584, guid: 5eee0dc8bc47086d39b95099fadfa0b8, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 722694583869467603}
+    - target: {fileID: 3442393623057757279, guid: 5eee0dc8bc47086d39b95099fadfa0b8, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 722694583869467603}
+    - target: {fileID: 3442393623187097443, guid: 5eee0dc8bc47086d39b95099fadfa0b8, type: 3}
+      propertyPath: objectStrategy
+      value: 
+      objectReference: {fileID: 722694583869467603}
     - target: {fileID: 7554341868749004475, guid: 5eee0dc8bc47086d39b95099fadfa0b8, type: 3}
       propertyPath: m_Name
-      value: CentralScope
+      value: CentralClientScope
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eee0dc8bc47086d39b95099fadfa0b8, type: 3}
@@ -86,3 +122,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7554341868749004475, guid: 5eee0dc8bc47086d39b95099fadfa0b8, type: 3}
   m_PrefabInstance: {fileID: 2720825256247529306}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &722694583869467603 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3442393621291656329, guid: 5eee0dc8bc47086d39b95099fadfa0b8, type: 3}
+  m_PrefabInstance: {fileID: 2720825256247529306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9788dff5669555c4380bb41cab3029bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
