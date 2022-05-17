@@ -43,12 +43,14 @@ namespace GGJUIO2020.Server
                                     UserAccount account = (UserAccount)loginProtocol.GetSessionData(owner, "account");
                                     if (account.Model.Progress == 9)
                                     {
+                                        Debug.Log("Sending Already Complete");
                                         mainProtocol.SendAlreadyComplete(owner);
                                     }
                                     else
                                     {
                                         int progress = account.Model.Progress;
                                         QuestItem item = account.Model.Quest[progress];
+                                        Debug.Log($"Sending current mission ({item.CityIndex}, {item.questionType})");
                                         mainProtocol.SendCurrentMission(owner, item.CityIndex, item.questionType);
                                     }
                                 }

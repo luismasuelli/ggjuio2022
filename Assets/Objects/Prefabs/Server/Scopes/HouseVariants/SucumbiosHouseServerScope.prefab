@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5600417864632492411, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
       propertyPath: m_Name
-      value: SucumbiosHouseServerScope Variant
+      value: SucumbiosHouseServerScope
       objectReference: {fileID: 0}
     - target: {fileID: 5600417864835271193, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -94,6 +94,10 @@ PrefabInstance:
     - target: {fileID: 5600417864835271193, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658717279765483296, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}
+      propertyPath: cityIndex
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa9e325b2b4ae936487e7be3ee0de2b9, type: 3}

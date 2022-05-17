@@ -14,6 +14,7 @@ using GGJUIO2020.Server.Authoring.Behaviours.Protocols.Models;
 using GGJUIO2020.Types.Protocols.Definitions;
 using GGJUIO2020.Types.Protocols.Messages;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 using String = AlephVault.Unity.Binary.Wrappers.String;
 
 
@@ -171,9 +172,13 @@ namespace GGJUIO2020.Server
                         });
                         AddIncomingMessageHandler("Talk", async (protocol, clientId) =>
                         {
-                            DoThrottled(clientId, (obj) =>
+                            var _ = RunInMainThread(() =>
                             {
-                                obj.GetComponent<TalkSender>().Talk();
+                                DoThrottled(clientId, (obj) =>
+                                {
+                                    Debug.Log("Talking...");
+                                    obj.GetComponent<TalkSender>().Talk();
+                                });
                             });
                         });
                     }

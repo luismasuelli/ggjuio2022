@@ -45,27 +45,31 @@ namespace GGJUIO2020.Server
                                     UserAccount account = (UserAccount)loginProtocol.GetSessionData(owner, "account");
                                     if (account.Model.Progress == 9)
                                     {
+                                        Debug.Log($"Sending info (city={cityIndex})");
                                         mainProtocol.SendInfo(owner, cityIndex);
                                     }
                                     else
                                     {
                                         int progress = account.Model.Progress;
                                         QuestItem item = account.Model.Quest[progress];
-                                        if (item.CityIndex == cityIndex)
+                                        if (item.CityIndex != cityIndex)
                                         {
+                                            Debug.Log($"Sending info (city={cityIndex})");
                                             mainProtocol.SendInfo(owner, cityIndex);
                                         }
                                         else
                                         {
+                                            Debug.Log($"Sending step complete (city={cityIndex})");
                                             mainProtocol.SendStepComplete(owner, cityIndex);
                                             account.Model.Progress += 1;
+                                            _ = Protocol.RunInMainThread(async () =>
+                                            {
+                                                await loginProtocol.Storage.UpdateUser(account.Model);
+                                            });
+
                                             if (account.Model.Progress == 9)
                                             {
                                                 mainProtocol.SendYouJustCompleted(owner);
-                                                _ = Protocol.RunInMainThread(async () =>
-                                                {
-                                                    await loginProtocol.Storage.UpdateUser(account.Model);
-                                                });
                                                 mainProtocol.BroadcastTheyJustCompleted((String)account.NickName);
                                             }
                                         }
