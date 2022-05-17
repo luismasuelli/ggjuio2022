@@ -64,7 +64,8 @@
       "source": "local",
       "dependencies": {
         "com.alephvault.unity.support": "0.0.2",
-        "com.alephvault.unity.support.generic": "0.0.1"
+        "com.alephvault.unity.support.generic": "0.0.1",
+        "com.unity.nuget.newtonsoft-json": "2.0.0"
       }
     },
     "com.alephvault.unity.soundaround": {
