@@ -185,7 +185,6 @@ namespace GGJUIO2020.Client
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
                                     .Clear().Write(ProvinceData.Data[provinceIndex].CurrentMission(questionType)).Wait().End());
                             });
-                            OpenWelcomeCanvas();
                         };
                         mainProtocol.AlreadyComplete += async () =>
                         {
@@ -195,7 +194,6 @@ namespace GGJUIO2020.Client
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
                                     .Clear().Write("Ya estás completo en todas tus misiones :)").Wait().End());
                             });
-                            OpenWelcomeCanvas();
                         };
                         mainProtocol.Info += async provinceIndex =>
                         {
@@ -223,7 +221,7 @@ namespace GGJUIO2020.Client
                                             await nullInteractor.RunInteraction(message,
                                                 new InteractiveMessage.PromptBuilder()
                                                     .Clear().Write(ProvinceData.Data[provinceIndex].Info(buttonsInteractor.Result)).Wait().End());
-                                            await nullInteractor.RunInteraction(message,
+                                            await buttonsInteractor.RunInteraction(message,
                                                 new InteractiveMessage.PromptBuilder()
                                                     .Clear().Write($"Te interesaria saber algo mas?").Wait().End());
                                             break;
@@ -231,7 +229,6 @@ namespace GGJUIO2020.Client
                                     if (saidNo) break;
                                 }
                             });
-                            OpenWelcomeCanvas();
                         };
                         mainProtocol.StepComplete += async provinceIndex =>
                         {
@@ -241,7 +238,6 @@ namespace GGJUIO2020.Client
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
                                     .Clear().Write("Felicidades! Encontraste el lugar correcto!. Ve por tu próxima misión").Wait().End());
                             });
-                            OpenWelcomeCanvas();
                         };
                         mainProtocol.YouJustCompleted += async () =>
                         {
@@ -251,7 +247,6 @@ namespace GGJUIO2020.Client
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
                                     .Clear().Write("Felicidades! Acabas de completar todas tus misiones!").Wait().End());
                             });
-                            OpenWelcomeCanvas();
                         };
                         mainProtocol.TheyJustCompleted += async (nickname) =>
                         {
@@ -261,21 +256,10 @@ namespace GGJUIO2020.Client
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
                                     .Clear().Write($"{nickname} acaba de completar todas tus misiones!").Wait().End());
                             });
-                            OpenWelcomeCanvas();
                         };
                         RunInteractions();
                     }
                     
-                    /***
-                     *     private async Task Gotcha(InteractorsManager manager, InteractiveMessage interactiveMessage)
-                            {
-                                NullInteractor nullInteractor = (NullInteractor)manager["null-input"];
-                                await nullInteractor.RunInteraction(interactiveMessage, new InteractiveMessage.PromptBuilder().Clear().Write(
-                                    string.Format("Gotcha! Saw you at ({0}, {1}) of my sight", x, y)
-                                ).Wait().End());
-                            }
-                     */
-
                     private void OnRegisterClick()
                     {
                         registerProtocol.Login = registerLogin.text;
