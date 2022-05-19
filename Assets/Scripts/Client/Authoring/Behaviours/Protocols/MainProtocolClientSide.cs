@@ -127,43 +127,6 @@ namespace GGJUIO2020.Client
                     {
                         if (loginProtocol.LoggedIn) throttler.Throttled(() => { RunInMainThread(MoveUp); });
                     }
-                    
-                    void Update()
-                    {
-                        if (loginProtocol.LoggedIn)
-                        {
-                            if (Input.GetKey(KeyCode.Space))
-                            {
-                                Debug.Log("Client::Talking ...");
-                                Talk();
-                                Debug.Log("Client::Talked.");
-                            }
-                            if (Input.GetKey(KeyCode.LeftArrow))
-                            {
-                                Debug.Log("Client::Moving < ...");
-                                WalkLeft();
-                                Debug.Log("Client::Moved <.");
-                            }
-                            else if (Input.GetKey(KeyCode.UpArrow))
-                            {
-                                Debug.Log("Client::Moving ^ ...");
-                                WalkUp();
-                                Debug.Log("Client::Moved ^.");
-                            }
-                            else if (Input.GetKey(KeyCode.DownArrow))
-                            {
-                                Debug.Log("Client::Moving v ...");
-                                WalkDown();
-                                Debug.Log("Client::Moved v.");
-                            }
-                            else if (Input.GetKey(KeyCode.RightArrow))
-                            {
-                                Debug.Log("Client::Moving > ...");
-                                WalkRight();
-                                Debug.Log("Client::Moved >.");
-                            }
-                        }
-                    }
                 }
             }
         }

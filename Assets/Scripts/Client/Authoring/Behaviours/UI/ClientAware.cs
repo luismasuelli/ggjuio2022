@@ -51,6 +51,7 @@ namespace GGJUIO2020.Client
 
                     private InteractiveInterface interactiveInterface;
                     private Queue<Func<InteractorsManager, InteractiveMessage, Task>> interactions;
+                    public bool RunningInteraction { get; private set; }
                         
                     // Start is called before the first frame update
                     private void Awake()
@@ -282,12 +283,58 @@ namespace GGJUIO2020.Client
                         {
                             if (!gameObject) break;
 
-                            while (interactions.Count > 0)
+                            RunningInteraction = true;
+                            try
                             {
-                                await interactiveInterface.RunInteraction(interactions.Dequeue());
+                                while (interactions.Count > 0)
+                                {
+                                    await interactiveInterface.RunInteraction(interactions.Dequeue());
+                                }
                             }
+                            catch (Exception e)
+                            {
+                                Debug.LogException(e);
+                            }
+                            RunningInteraction = false;
 
                             await Tasks.Blink();
+                        }
+                    }
+                    
+                    void Update()
+                    {
+                        if (loginProtocol.LoggedIn && !RunningInteraction)
+                        {
+                            if (Input.GetKeyDown(KeyCode.Space))
+                            {
+                                Debug.Log("Client::Talking ...");
+                                mainProtocol.TalkNPC();
+                                Debug.Log("Client::Talked.");
+                            }
+                            if (Input.GetKey(KeyCode.LeftArrow))
+                            {
+                                Debug.Log("Client::Moving < ...");
+                                mainProtocol.WalkLeft();
+                                Debug.Log("Client::Moved <.");
+                            }
+                            else if (Input.GetKey(KeyCode.UpArrow))
+                            {
+                                Debug.Log("Client::Moving ^ ...");
+                                mainProtocol.WalkUp();
+                                Debug.Log("Client::Moved ^.");
+                            }
+                            else if (Input.GetKey(KeyCode.DownArrow))
+                            {
+                                Debug.Log("Client::Moving v ...");
+                                mainProtocol.WalkDown();
+                                Debug.Log("Client::Moved v.");
+                            }
+                            else if (Input.GetKey(KeyCode.RightArrow))
+                            {
+                                Debug.Log("Client::Moving > ...");
+                                mainProtocol.WalkRight();
+                                Debug.Log("Client::Moved >.");
+                            }
                         }
                     }
 
