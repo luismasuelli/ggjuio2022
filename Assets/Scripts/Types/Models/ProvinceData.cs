@@ -54,6 +54,13 @@ namespace GGJUIO2020.Types
                 },
                 new ProvinceData()
                 {
+                    Name = "Sucumbios",
+                    Cuisine = "El ceviche de palmito",
+                    Regional = "Las cascadas de San Rafael",
+                    Culture = "podemos encontrar la etnia de los Cofanes",
+                },
+                new ProvinceData()
+                {
                     Name = "Napo",
                     Cuisine = "El maito de guanta",
                     Regional = "El Yasuni",
@@ -65,14 +72,7 @@ namespace GGJUIO2020.Types
                     Cuisine = "Las ancas de rana",
                     Regional = "El rio Bombuscaro",
                     Culture = "ocurrio el conflicto del Falso Paquisha",
-                },
-                new ProvinceData()
-                {
-                    Name = "Sucumbios",
-                    Cuisine = "El ceviche de palmito",
-                    Regional = "Las cascadas de San Rafael",
-                    Culture = "podemos encontrar la etnia de los Cofanes",
-                },
+                }
             };
             
             public string Name;
@@ -92,7 +92,7 @@ namespace GGJUIO2020.Types
                         baseText = "Dirigete a la provincia que tiene: " + Regional;
                         break;
                     case "culture":
-                        baseText = "Dirigete a la provincia en donde: " + Culture;
+                        baseText = "Dirigete a la provincia en donde " + Culture;
                         break;
                     default:
                         throw new ArgumentException($"Invalid question type: {questionType}");
@@ -107,13 +107,13 @@ namespace GGJUIO2020.Types
                 switch (questionType)
                 {
                     case "cuisine":
-                        baseText = "Aqui cuya comida principal es: " + Cuisine;
+                        baseText = "Aqui la comida principal es: " + Cuisine;
                         break;
                     case "regional":
                         baseText = "Aqui puedes encontrar: " + Regional;
                         break;
                     case "culture":
-                        baseText = "Esta es la provincia en donde: " + Culture;
+                        baseText = "Esta es la provincia en donde " + Culture;
                         break;
                     default:
                         throw new ArgumentException($"Invalid question type: {questionType}");
