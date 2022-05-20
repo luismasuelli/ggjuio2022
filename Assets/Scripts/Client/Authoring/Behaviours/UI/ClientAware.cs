@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AlephVault.Unity.Meetgard.Authoring.Behaviours.Client;
+using AlephVault.Unity.Support.Authoring.Behaviours;
 using AlephVault.Unity.Support.Utils;
 using GameMeanMachine.Unity.GabTab.Authoring.Behaviours;
 using GameMeanMachine.Unity.GabTab.Authoring.Behaviours.Interactors;
@@ -81,8 +82,10 @@ namespace GGJUIO2020.Client
                         registerButton.onClick.AddListener(OnRegisterClick);
                         loginProtocol.OnLoggedOut += async () =>
                         {
+                            Debug.Log("OnLoggedOut::Queuing");
                             QueueInteraction(async (manager, message) =>
                             {
+                                Debug.Log("OnLoggedOut::Running");
                                 NullInteractor nullInteractor = (NullInteractor)manager["null"];
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder().Clear().Write(
                                     $"Sesión cerrada exitosamente"
@@ -92,8 +95,10 @@ namespace GGJUIO2020.Client
                         };
                         loginProtocol.OnKicked += async (r) =>
                         {
+                            Debug.Log("OnKicked::Queuing");
                             QueueInteraction(async (manager, message) =>
                             {
+                                Debug.Log("OnKicked::Running");
                                 NullInteractor nullInteractor = (NullInteractor)manager["null"];
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder().Clear().Write(
                                     $"Te desconectaron por la siguiente razón: {r.Reason}"
@@ -103,12 +108,15 @@ namespace GGJUIO2020.Client
                         };
                         loginProtocol.OnLoginOK += async (ok) =>
                         {
+                            Debug.Log("OnLoginOK::Open Canvas");
                             OpenLogoutCanvas();
                         };
                         loginProtocol.OnTimeout += async () =>
                         {
+                            Debug.Log("OnTimeout::Queuing");
                             QueueInteraction(async (manager, message) =>
                             {
+                                Debug.Log("OnTimeout::Running");
                                 NullInteractor nullInteractor = (NullInteractor)manager["null"];
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder().Clear().Write(
                                     $"Se terminó el tiempo para el login - intenta de nuevo"
@@ -118,8 +126,10 @@ namespace GGJUIO2020.Client
                         };
                         loginProtocol.OnLoginFailed += async (e) =>
                         {
+                            Debug.Log("OnLoginFailed::Queuing");
                             QueueInteraction(async (manager, message) =>
                             {
+                                Debug.Log("OnLoginFailed::Running");
                                 NullInteractor nullInteractor = (NullInteractor)manager["null"];
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder().Clear().Write(
                                     $"Imposible conectarse: {e.Reason}"
@@ -129,8 +139,10 @@ namespace GGJUIO2020.Client
                         };
                         registerProtocol.OnRegistered += async () =>
                         {
+                            Debug.Log("OnRegistered::Queuing");
                             QueueInteraction(async (manager, message) =>
                             {
+                                Debug.Log("OnRegistered::Running");
                                 NullInteractor nullInteractor = (NullInteractor) manager["null"];
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
                                     .Clear().Write($"Registro exitoso. Hora de loguearte!").Wait().End());
@@ -139,8 +151,10 @@ namespace GGJUIO2020.Client
                         };
                         registerProtocol.OnDuplicate += async () =>
                         {
+                            Debug.Log("OnDuplicate::Queuing");
                             QueueInteraction(async (manager, message) =>
                             {
+                                Debug.Log("OnDuplicate::Running");
                                 NullInteractor nullInteractor = (NullInteractor) manager["null"];
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
                                     .Clear().Write($"Ya existe ese nick o usuario").Wait().End());
@@ -149,8 +163,10 @@ namespace GGJUIO2020.Client
                         };
                         registerProtocol.OnInvalid += async () =>
                         {
+                            Debug.Log("OnInvalid::Queuing");
                             QueueInteraction(async (manager, message) =>
                             {
+                                Debug.Log("OnInvalid::Running");
                                 NullInteractor nullInteractor = (NullInteractor) manager["null"];
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
                                     .Clear().Write($"Datos inválidos").Wait().End());
@@ -160,8 +176,10 @@ namespace GGJUIO2020.Client
                         };
                         registerProtocol.OnPasswordMismatch += async () =>
                         {
+                            Debug.Log("OnPasswordMismatch::Queuing");
                             QueueInteraction(async (manager, message) =>
                             {
+                                Debug.Log("OnPasswordMismatch::Running");
                                 NullInteractor nullInteractor = (NullInteractor) manager["null"];
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
                                     .Clear().Write($"Los passwords no encajan").Wait().End());
@@ -170,8 +188,10 @@ namespace GGJUIO2020.Client
                         };
                         registerProtocol.OnUnexpectedError += async () =>
                         {
+                            Debug.Log("OnUnexpectedError::Queuing");
                             QueueInteraction(async (manager, message) =>
                             {
+                                Debug.Log("OnUnexpectedError::Running");
                                 NullInteractor nullInteractor = (NullInteractor) manager["null"];
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
                                     .Clear().Write($"Hubo un error interno!!!!!!").Wait().End());
@@ -180,8 +200,10 @@ namespace GGJUIO2020.Client
                         };
                         mainProtocol.CurrentMission += async (provinceIndex, questionType) =>
                         {
+                            Debug.Log("CurrentMission::Queuing");
                             QueueInteraction(async (manager, message) =>
                             {
+                                Debug.Log("OnCurrentMission::Running");
                                 NullInteractor nullInteractor = (NullInteractor) manager["null"];
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
                                     .Clear().Write(ProvinceData.Data[provinceIndex].CurrentMission(questionType)).Wait().End());
@@ -189,8 +211,10 @@ namespace GGJUIO2020.Client
                         };
                         mainProtocol.AlreadyComplete += async () =>
                         {
+                            Debug.Log("AlreadyComplete::Queuing");
                             QueueInteraction(async (manager, message) =>
                             {
+                                Debug.Log("AlreadyComplete::Running");
                                 NullInteractor nullInteractor = (NullInteractor) manager["null"];
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
                                     .Clear().Write("Ya estás completo en todas tus misiones :)").Wait().End());
@@ -198,8 +222,10 @@ namespace GGJUIO2020.Client
                         };
                         mainProtocol.Info += async provinceIndex =>
                         {
+                            Debug.Log("Info::Queuing");
                             QueueInteraction(async (manager, message) =>
                             {
+                                Debug.Log("Info::Running");
                                 NullInteractor nullInteractor = (NullInteractor) manager["null"];
                                 ButtonsInteractor buttonsInteractor = (ButtonsInteractor) manager["informant"];
                                 await buttonsInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
@@ -233,17 +259,21 @@ namespace GGJUIO2020.Client
                         };
                         mainProtocol.StepComplete += async provinceIndex =>
                         {
+                            Debug.Log("StepComplete::Queuing");
                             QueueInteraction(async (manager, message) =>
                             {
+                                Debug.Log("StepComplete::Running");
                                 NullInteractor nullInteractor = (NullInteractor) manager["null"];
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
-                                    .Clear().Write("Felicidades! Encontraste el lugar correcto!. Ve por tu próxima misión").Wait().End());
+                                    .Clear().Write("Felicidades! Encontraste el lugar correcto! Ve por tu próxima misión").Wait().End());
                             });
                         };
                         mainProtocol.YouJustCompleted += async () =>
                         {
+                            Debug.Log("YouJustCompleted::Queuing");
                             QueueInteraction(async (manager, message) =>
                             {
+                                Debug.Log("YouJustCompleted::Running");
                                 NullInteractor nullInteractor = (NullInteractor) manager["null"];
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
                                     .Clear().Write("Felicidades! Acabas de completar todas tus misiones!").Wait().End());
@@ -251,8 +281,10 @@ namespace GGJUIO2020.Client
                         };
                         mainProtocol.TheyJustCompleted += async (nickname) =>
                         {
+                            Debug.Log("TheyJustCompleted::Queuing");
                             QueueInteraction(async (manager, message) =>
                             {
+                                Debug.Log("TheyJustCompleted::Running");
                                 NullInteractor nullInteractor = (NullInteractor) manager["null"];
                                 await nullInteractor.RunInteraction(message, new InteractiveMessage.PromptBuilder()
                                     .Clear().Write($"{nickname} acaba de completar todas tus misiones!").Wait().End());
@@ -307,33 +339,23 @@ namespace GGJUIO2020.Client
                         {
                             if (Input.GetKeyDown(KeyCode.Space))
                             {
-                                Debug.Log("Client::Talking ...");
                                 mainProtocol.TalkNPC();
-                                Debug.Log("Client::Talked.");
                             }
                             if (Input.GetKey(KeyCode.LeftArrow))
                             {
-                                Debug.Log("Client::Moving < ...");
                                 mainProtocol.WalkLeft();
-                                Debug.Log("Client::Moved <.");
                             }
                             else if (Input.GetKey(KeyCode.UpArrow))
                             {
-                                Debug.Log("Client::Moving ^ ...");
                                 mainProtocol.WalkUp();
-                                Debug.Log("Client::Moved ^.");
                             }
                             else if (Input.GetKey(KeyCode.DownArrow))
                             {
-                                Debug.Log("Client::Moving v ...");
                                 mainProtocol.WalkDown();
-                                Debug.Log("Client::Moved v.");
                             }
                             else if (Input.GetKey(KeyCode.RightArrow))
                             {
-                                Debug.Log("Client::Moving > ...");
                                 mainProtocol.WalkRight();
-                                Debug.Log("Client::Moved >.");
                             }
                         }
                     }
@@ -351,17 +373,33 @@ namespace GGJUIO2020.Client
 
                     private void OpenWelcomeCanvas()
                     {
-                        if (registerClient.IsConnected) registerClient.Close();
-                        if (loginClient.IsConnected) loginClient.Close();
-                        welcomePanel.SetActive(true);
-                        logoutPanel.SetActive(false);
+                        Debug.Log("Opening Welcome Canvas");
+                        loginProtocol.RunInMainThread(() =>
+                        {
+                            if (registerClient.IsConnected) registerClient.Close();
+                            if (loginClient.IsConnected) loginClient.Close();
+                            welcomePanel.SetActive(true);
+                            logoutPanel.SetActive(false);
+                        });
                     }
 
                     private void OpenLogoutCanvas()
                     {
-                        if (registerClient.IsConnected) registerClient.Close();
-                        welcomePanel.SetActive(false);
-                        logoutPanel.SetActive(true);
+                        Debug.Log("Opening Logout Canvas");
+                        loginProtocol.RunInMainThread(() =>
+                        {
+                            try
+                            {
+                                if (registerClient.IsConnected) registerClient.Close();
+                                welcomePanel.SetActive(false);
+                                logoutPanel.SetActive(true);
+                            }
+                            catch (Exception e)
+                            {
+                                Debug.LogException(e);
+                                throw;
+                            }
+                        });
                     }
                 }
             }
