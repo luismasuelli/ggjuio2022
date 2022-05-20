@@ -14,6 +14,7 @@ namespace GGJUIO2020.Server
                 // Start is called before the first frame update
                 void Start()
                 {
+                    Application.runInBackground = true;
                     GetComponent<NetworkServer>().StartServer(16667);
                 }
 
