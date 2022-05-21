@@ -91,6 +91,9 @@
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Authoring\Behaviours\Server\PingProtocolServerSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Protocols\PingProtocolDefinition.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Protocols\Version.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Protocols\MandatoryHandshakeProtocolDefinition.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Authoring\Behaviours\Server\MandatoryHandshakeProtocolServerSide.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Authoring\Behaviours\Client\MandatoryHandshakeProtocolClientSide.cs" />
      <None Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\AlephVault.Unity.Meetgard.Runtime.asmdef" />
  <Reference Include="UnityEngine">
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -313,9 +316,6 @@
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.WebGL.Extensions">
- <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Android.Extensions">
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>

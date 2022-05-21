@@ -57,7 +57,6 @@
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard-auth\Runtime\Protocols\Simple\SimpleAuthProtocolServerSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard-auth\Runtime\Protocols\Simple\SimpleAuthProtocolServerSide_messages.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard-auth\Runtime\Protocols\Simple\SimpleAuthProtocolServerSide_wrappers.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard-auth\Runtime\Protocols\Simple\SimpleAuthProtocolServerSide_exclusion.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard-auth\Runtime\Protocols\Simple\SimpleAuthProtocolClientSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard-auth\Runtime\Protocols\Simple\SimpleAuthProtocolDefinition.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard-auth\Runtime\Protocols\Simple\SimpleAuthProtocolServerSide_login.cs" />
@@ -286,9 +285,6 @@
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.WebGL.Extensions">
- <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Android.Extensions">
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>

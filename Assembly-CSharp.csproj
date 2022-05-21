@@ -53,10 +53,14 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\Models\GlobalTeleporter.cs" />
+     <Compile Include="Assets\Scripts\Types\Protocols\Messages\CharacterDetails.cs" />
+     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\GameServerLauncher.cs" />
+     <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\Models\RefereeClientSide.cs" />
      <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\RegisterProtocolClientSide.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\Models\PlayerCharacterServerSide.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Definitions\RegisterProtocolDefinition.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\RegisterProtocolServerSide.cs" />
+     <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\Models\InformantClientSide.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Messages\UserAccount.cs" />
      <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\UI\ClientAware.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Messages\LoginBody.cs" />
@@ -68,6 +72,7 @@
      <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\MainProtocolClientSide.cs" />
      <Compile Include="Assets\Scripts\Types\Models\User.cs" />
      <Compile Include="Assets\Scripts\Types\Models\QuestItem.cs" />
+     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\Models\RefereeServerSide.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\Models\ScopeAddOns\RefereeSetup.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Messages\LoginFailed.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\Models\GlobalTeleportTarget.cs" />
@@ -77,9 +82,10 @@
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\RegisterServerLauncher.cs" />
      <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\LoginProtocolClientSide.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Messages\CurrentMission.cs" />
+     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\Models\InformantServerSide.cs" />
+     <Compile Include="Assets\Scripts\Types\Models\ProvinceData.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Messages\UserBody.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\MainProtocolServerSide.cs" />
-     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\GameServerLauncher.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

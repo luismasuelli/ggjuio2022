@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 16384
+  RelatedObjectOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &1139049308135277858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +369,8 @@ GameObject:
   - component: {fileID: 1139049309093599457}
   - component: {fileID: 1139049309093599463}
   - component: {fileID: 1139049309093599462}
+  - component: {fileID: 355613948504643321}
+  - component: {fileID: 8850580827391757778}
   m_Layer: 0
   m_Name: PlayerLabel
   m_TagString: Untagged
@@ -527,3 +530,29 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+--- !u!114 &355613948504643321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139049309093599456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6b592f73c40ee543b4a91a132c2a574, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8850580827391757778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139049309093599456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22564b0215c15d94699c106c5993926d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 32767
+  RelatedObjectOffset: {x: 0.5, y: 1.75, z: 0}
