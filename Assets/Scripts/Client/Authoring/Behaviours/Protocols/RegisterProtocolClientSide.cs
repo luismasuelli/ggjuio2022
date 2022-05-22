@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using AlephVault.Unity.Meetgard.Authoring.Behaviours.Client;
+using AlephVault.Unity.Meetgard.Protocols.Simple;
 using AlephVault.Unity.Support.Utils;
 using GGJUIO2020.Types.Protocols.Definitions;
 using GGJUIO2020.Types.Protocols.Messages;
@@ -15,7 +16,7 @@ namespace GGJUIO2020.Client
         {
             namespace Protocols
             {
-                public class RegisterProtocolClientSide : ProtocolClientSide<RegisterProtocolDefinition>
+                public class RegisterProtocolClientSide : MandatoryHandshakeProtocolClientSide<RegisterProtocolDefinition>
                 {
                     private Func<UserBody, Task> SendRegister;
                     
@@ -64,6 +65,23 @@ namespace GGJUIO2020.Client
                     /// </summary>
                     public event Func<Task> OnPasswordMismatch;
                     
+                    protected override void Setup()
+                    {
+                        OnWelcome += RegisterProtocolClientSide_OnWelcome;
+                    }
+
+                    private async Task RegisterProtocolClientSide_OnWelcome()
+                    {
+                        Debug.Log("Registering");
+                        await SendRegister(new UserBody()
+                        {
+                            Login = Login,
+                            Password = Password,
+                            PasswordConfirm = PasswordConfirm,
+                            NickName = NickName
+                        });
+                    }
+
                     protected override void Initialize()
                     {
                         SendRegister = MakeSender<UserBody>("Register");
@@ -71,17 +89,6 @@ namespace GGJUIO2020.Client
 
                     protected override void SetIncomingMessageHandlers()
                     {
-                        AddIncomingMessageHandler("Welcome", async protocol =>
-                        {
-                            Debug.Log("Registering");
-                            await SendRegister(new UserBody()
-                            {
-                                Login = Login,
-                                Password = Password,
-                                PasswordConfirm = PasswordConfirm,
-                                NickName = NickName
-                            });
-                        });
                         AddIncomingMessageHandler("Ok", async protocol =>
                         {
                             Debug.Log("Register OK");

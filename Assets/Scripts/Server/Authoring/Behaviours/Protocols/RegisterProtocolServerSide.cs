@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AlephVault.Unity.Meetgard.Authoring.Behaviours.Client;
 using AlephVault.Unity.Meetgard.Authoring.Behaviours.Server;
+using AlephVault.Unity.Meetgard.Protocols.Simple;
 using AlephVault.Unity.RemoteStorage.Types.Results;
 using AlephVault.Unity.Support.Generic.Types.Sampling;
 using GGJUIO2020.Server.Authoring.Behaviours.External;
@@ -23,7 +24,7 @@ namespace GGJUIO2020.Server
             namespace Protocols
             {
                 [RequireComponent(typeof(Storage))]
-                public class RegisterProtocolServerSide : ProtocolServerSide<RegisterProtocolDefinition>
+                public class RegisterProtocolServerSide : MandatoryHandshakeProtocolServerSide<RegisterProtocolDefinition>
                 {
                     private Storage storage;
                     private Func<ulong, Task> Ok; 
@@ -38,22 +39,10 @@ namespace GGJUIO2020.Server
                     {
                         storage = GetComponent<Storage>();
                     }
-
-                    /// <summary>
-                    ///   The timeout to kick a connection that did
-                    ///   not send a register message appropriately.
-                    /// </summary>
-                    [SerializeField]
-                    private float registerTimeout = 5f;
-
-                    // This holds the register-pending connections.
-                    private Coroutine registerTimeoutCoroutine;
-
-                    // A mutex for protocol-exclusive actions handling the sessions
-                    private SemaphoreSlim mutex = new SemaphoreSlim(1, 1);
-
+                    
                     protected override void Initialize()
                     {
+                        base.Initialize();
                         Ok = MakeSender("Ok");
                         Duplicate = MakeSender("Duplicate");
                         PasswordMismatch = MakeSender("PasswordMismatch");
@@ -61,90 +50,13 @@ namespace GGJUIO2020.Server
                         UnexpectedError = MakeSender("UnexpectedError");
                         SendWelcome = MakeSender("Welcome");
                         SendTimeout = MakeSender("Timeout");
-                        registerTimeoutCoroutine = StartCoroutine(RegisterTimeoutCoroutine());
-                    }
-
-                    private void OnDestroy()
-                    {
-                        if (registerTimeoutCoroutine != null) StopCoroutine(registerTimeoutCoroutine);
-                        registerTimeoutCoroutine = null;
-                    }
-
-                    // Every second, it updates the register timeouts.
-                    private IEnumerator RegisterTimeoutCoroutine()
-                    {
-                        while(true)
-                        {
-                            yield return new WaitForSeconds(1f);
-                            // Yes: it triggers an async function on each frame.
-                            // Checks every 1s that there are no pending connections.
-                            UpdatePendingRegister(1f);
-                        }
                     }
                     
-                    // Wraps this as an exclusive execution action
-                    private async Task Exclusive(Func<Task> action)
-                    {
-                        try
-                        {
-                            await mutex.WaitAsync();
-                            await action();
-                        }
-                        finally
-                        {
-                            mutex.Release();
-                        }
-                    }
-
-                    // This is a dict that will be used to track
-                    // the timeout of pending login connections.
-                    private ConcurrentDictionary<ulong, float> pendingRegisterConnections = new ConcurrentDictionary<ulong, float>();
-
-                    // Adds a connection id to the pending register
-                    // connections.
-                    private bool AddPendingLogin(ulong connection)
-                    {
-                        return pendingRegisterConnections.TryAdd(connection, 0);
-                    }
-
-                    // Removes a connection id from the pending
-                    // register connections.
-                    private bool RemovePendingRegister(ulong connection)
-                    {
-                        return pendingRegisterConnections.TryRemove(connection, out _);
-                    }
-
-                    // Updates all of the pending connections.
-                    private async void UpdatePendingRegister(float delta)
-                    {
-                        await Exclusive(async () =>
-                        {
-                            foreach (var pair in pendingRegisterConnections.ToArray())
-                            {
-                                pendingRegisterConnections.TryUpdate(pair.Key, pair.Value + delta, pair.Value);
-                                if (pendingRegisterConnections.TryGetValue(pair.Key, out float value) && value >= registerTimeout)
-                                {
-                                    _ = SendTimeout(pair.Key);
-                                }
-                            }
-                        });
-                    }
-
-                    /// <summary>
-                    ///   Sets up the connection to be login pending.
-                    ///   Also greets the client.
-                    /// </summary>
-                    /// <param name="clientId">The just-connected client id</param>
-                    public override async Task OnConnected(ulong clientId)
-                    {
-                        AddPendingLogin(clientId);
-                        _ = SendWelcome(clientId);
-                    }
-
                     protected override void SetIncomingMessageHandlers()
                     {
                         AddIncomingMessageHandler<UserBody>("Register", async (protocol, clientId, body) =>
                         {
+                            RemoveHandshakePending(clientId);
                             if (!body.PasswordsMatch())
                             {
                                 await PasswordMismatch(clientId);

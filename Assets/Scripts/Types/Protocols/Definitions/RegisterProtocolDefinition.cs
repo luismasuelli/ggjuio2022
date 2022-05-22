@@ -11,12 +11,11 @@ namespace GGJUIO2020.Types
             /// <summary>
             ///   A simple register protocol.
             /// </summary>
-            public class RegisterProtocolDefinition : ProtocolDefinition
+            public class RegisterProtocolDefinition : MandatoryHandshakeProtocolDefinition
             {
                 protected override void DefineMessages()
                 {
-                    DefineServerMessage("Welcome");
-                    DefineServerMessage("Timeout");
+                    base.DefineMessages();
                     DefineClientMessage<UserBody>("Register");
                     DefineServerMessage("Ok");
                     DefineServerMessage("Duplicate");
