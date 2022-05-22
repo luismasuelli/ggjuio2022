@@ -110,7 +110,7 @@ namespace GGJUIO2020.Server
                     public async Task UpdateUser(User user)
                     {
                         Result<User, string> result = await users.Replace(user.Id, user);
-                        if (result.Code == ResultCode.Created)
+                        if (result.Code == ResultCode.Ok)
                         {
                             // Everything ok.
                             return;

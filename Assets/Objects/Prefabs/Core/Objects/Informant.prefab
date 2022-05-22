@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 16384
+  RelatedObjectOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &7355568579125467244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b6729b829e4dcebcd2585f70e0ade4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSpriteRose: {fileID: 11400000, guid: ac51a23e4026e38bb8049d9b5bebc9b8, type: 2}
+  defaultSpriteRose: {fileID: 11400000, guid: 118a4e5e3500bf444a96f2b562f26b41, type: 2}
 --- !u!1 &7355568579345254499
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,12 +37,9 @@ namespace GGJUIO2020.Client
                     /// </summary>
                     public string Password;
                     
-                    public bool LoggedIn { get; private set; }
-                    
                     protected override void Setup()
                     {
                         base.Setup();
-                        LoggedIn = false;
                         OnWelcome += LoginProtocol_OnWelcome;
                         OnTimeout += LoginProtocol_OnTimeout;
                         OnLoginOK += LoginProtocol_OnLoginOK;
@@ -57,7 +54,6 @@ namespace GGJUIO2020.Client
                     
                     void OnDestroy()
                     {
-                        LoggedIn = false;
                         OnWelcome -= LoginProtocol_OnWelcome;
                         OnTimeout -= LoginProtocol_OnTimeout;
                         OnLoginOK -= LoginProtocol_OnLoginOK;
@@ -84,7 +80,6 @@ namespace GGJUIO2020.Client
                     private async Task LoginProtocol_OnLoginOK(Nothing arg)
                     {
                         Debug.Log($"SSAPClient({Login}) :: login ok");
-                        LoggedIn = true;
                     }
         
                     private async Task LoginProtocol_OnLoginFailed(LoginFailed arg)
@@ -95,7 +90,6 @@ namespace GGJUIO2020.Client
                     private async Task LoginProtocol_OnKicked(Kicked arg)
                     {
                         Debug.Log($"SSAPClient({Login}) :: Kicked: {arg}");
-                        LoggedIn = false;
                     }
         
                     private async Task LoginProtocol_OnForbidden()

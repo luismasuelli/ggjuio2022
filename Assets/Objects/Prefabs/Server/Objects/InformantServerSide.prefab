@@ -20,6 +20,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7355568579125467244, guid: f80813c0c474389bd89a6884c8b30c85, type: 3}
+      propertyPath: defaultSpriteRose
+      value: 
+      objectReference: {fileID: 11400000, guid: 118a4e5e3500bf444a96f2b562f26b41, type: 2}
     - target: {fileID: 7355568579345254492, guid: f80813c0c474389bd89a6884c8b30c85, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -66,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7355568579345254499, guid: f80813c0c474389bd89a6884c8b30c85, type: 3}
       propertyPath: m_Name
-      value: Informant
+      value: InformantServerSide
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80813c0c474389bd89a6884c8b30c85, type: 3}
