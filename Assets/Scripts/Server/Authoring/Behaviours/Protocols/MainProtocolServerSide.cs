@@ -78,7 +78,7 @@ namespace GGJUIO2020.Server
                                 loginProtocolServerSide.SetSessionData(clientId, "account", account);
                                 // Instantiate the prefab for the player.
                                 var obj = netRoseProtocolServerSide.InstantiateHere(
-                                    0, async (obj) =>
+                                    "player", async (obj) =>
                                     {
                                         PlayerCharacterServerSide objSS = obj.GetComponent<PlayerCharacterServerSide>();
                                         // Give it the required connection id.

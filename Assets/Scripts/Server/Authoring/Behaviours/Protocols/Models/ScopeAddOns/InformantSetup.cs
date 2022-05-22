@@ -40,7 +40,7 @@ namespace GGJUIO2020.Server
                                     try
                                     {
                                         var obj = netRoseScopeServerSide.NetRoseProtocolServerSide.InstantiateHere(
-                                            1, async (obj) =>
+                                            "informant", async (obj) =>
                                             {
                                                 MapObject mapObj = obj.GetComponent<MapObject>();
                                                 mapObj.Initialize();

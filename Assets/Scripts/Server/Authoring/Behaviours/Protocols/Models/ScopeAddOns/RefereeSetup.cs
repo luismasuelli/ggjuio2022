@@ -37,7 +37,7 @@ namespace GGJUIO2020.Server
                                     try
                                     {
                                         var obj = scopeServerSide.Protocol.GetComponent<NetRoseProtocolServerSide>().InstantiateHere(
-                                            2, async (obj) =>
+                                            "referee", async (obj) =>
                                             {
                                                 MapObject mapObj = obj.GetComponent<MapObject>();
                                                 mapObj.Initialize();
