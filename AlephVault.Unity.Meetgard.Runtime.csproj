@@ -56,6 +56,7 @@
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Authoring\Behaviours\Server\NetworkServer\NetworkServer_lifeCycle.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Authoring\Behaviours\Client\NetworkClient\NetworkClient.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Authoring\Behaviours\Server\NetworkServer\NetworkServer_protocols.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Authoring\Behaviours\Client\MandatoryHandshakeProtocolClientSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Authoring\Behaviours\Server\NetworkServer\NetworkServer_endpoints.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Authoring\Behaviours\Server\NetworkServer\NetworkServer_events.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Types\UnexpectedMessageException.cs" />
@@ -63,6 +64,7 @@
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Types\Exception.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Authoring\Behaviours\Server\IProtocolServerSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Authoring\Behaviours\Client\ProtocolClientSide.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Protocols\MandatoryHandshakeProtocolDefinition.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Types\IncomingMessageTypeMismatchException.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Types\MessageOverflowException.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Types\MissingZeroProtocol.cs" />
@@ -82,6 +84,7 @@
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Protocols\ZeroProtocolDefinition.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Types\Endpoints\NetworkEndpoint.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Authoring\Behaviours\Client\NetworkClient\NetworkClient_protocols.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Authoring\Behaviours\Server\MandatoryHandshakeProtocolServerSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Types\Nothing.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Types\HandlerAlreadyRegisteredException.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Types\Endpoints\Remote\NetworkRemoteEndpoint_lifeCycle.cs" />
@@ -91,9 +94,6 @@
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Authoring\Behaviours\Server\PingProtocolServerSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Protocols\PingProtocolDefinition.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Protocols\Version.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Protocols\MandatoryHandshakeProtocolDefinition.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Authoring\Behaviours\Server\MandatoryHandshakeProtocolServerSide.cs" />
-     <Compile Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\Authoring\Behaviours\Client\MandatoryHandshakeProtocolClientSide.cs" />
      <None Include="\home\luismasuelli\Projects\Unity\unity-meetgard\Runtime\AlephVault.Unity.Meetgard.Runtime.asmdef" />
  <Reference Include="UnityEngine">
  <HintPath>/home/luismasuelli/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

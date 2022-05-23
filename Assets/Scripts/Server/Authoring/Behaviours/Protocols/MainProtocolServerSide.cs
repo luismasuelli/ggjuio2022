@@ -100,7 +100,7 @@ namespace GGJUIO2020.Server
                                 DoThrottled(clientId, (obj) =>
                                 {
                                     obj.Orientation = Direction.LEFT;
-                                    obj.StartMovement(Direction.LEFT);
+                                    playerCharacterPrincipalProtocolServerSide.MoveLeft(clientId);
                                 });
                             });
                         });
@@ -111,7 +111,7 @@ namespace GGJUIO2020.Server
                                 DoThrottled(clientId, (obj) =>
                                 {
                                     obj.Orientation = Direction.RIGHT;
-                                    obj.StartMovement(Direction.RIGHT);
+                                    playerCharacterPrincipalProtocolServerSide.MoveRight(clientId);
                                 });
                             });
                         });
@@ -122,7 +122,7 @@ namespace GGJUIO2020.Server
                                 DoThrottled(clientId, (obj) =>
                                 {
                                     obj.Orientation = Direction.UP;
-                                    obj.StartMovement(Direction.UP);
+                                    playerCharacterPrincipalProtocolServerSide.MoveUp(clientId);
                                 });
                             });
                         });
@@ -133,7 +133,7 @@ namespace GGJUIO2020.Server
                                 DoThrottled(clientId, (obj) =>
                                 {
                                     obj.Orientation = Direction.DOWN;
-                                    obj.StartMovement(Direction.DOWN);
+                                    playerCharacterPrincipalProtocolServerSide.MoveDown(clientId);
                                 });
                             });
                         });

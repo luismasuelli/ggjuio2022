@@ -11,6 +11,8 @@ using AlephVault.Unity.RemoteStorage.Types.Results;
 using AlephVault.Unity.Support.Authoring.Behaviours;
 using AlephVault.Unity.Support.Utils;
 using GameMeanMachine.Unity.NetRose.Authoring.Behaviours.Client;
+using GameMeanMachine.Unity.WindRose.Types;
+using GGJUIO2020.Client.Authoring.Behaviours.Protocols.Models;
 using GGJUIO2020.Server.Authoring.Behaviours.External;
 using GGJUIO2020.Types.Models;
 using GGJUIO2020.Types.Protocols.Definitions;
@@ -110,22 +112,56 @@ namespace GGJUIO2020.Client
                     
                     public void WalkDown()
                     {
-                        if (loginProtocol.LoggedIn) throttler.Throttled(() => { RunInMainThread(MoveDown); });
+                        if (loginProtocol.LoggedIn) throttler.Throttled(() => {
+                            RunInMainThread(() => {
+                                if (PlayerCharacterClientSide.Instance)
+                                {
+                                    PlayerCharacterClientSide.Instance.MapObject.StartMovement(Direction.DOWN);
+                                }
+                                MoveDown();
+                            });
+                        });
                     }
 
                     public void WalkLeft()
                     {
-                        if (loginProtocol.LoggedIn) throttler.Throttled(() => { RunInMainThread(MoveLeft); });
+                        if (loginProtocol.LoggedIn) throttler.Throttled(() => {
+                            RunInMainThread(() => {
+                                if (PlayerCharacterClientSide.Instance)
+                                {
+                                    PlayerCharacterClientSide.Instance.MapObject.StartMovement(Direction.LEFT);
+                                }
+                                MoveLeft();
+                            });
+                        });
                     }
 
                     public void WalkRight()
                     {
-                        if (loginProtocol.LoggedIn) throttler.Throttled(() => { RunInMainThread(MoveRight); });
+                        if (loginProtocol.LoggedIn) throttler.Throttled(() => {
+                            RunInMainThread(() => {
+                                if (PlayerCharacterClientSide.Instance)
+                                {
+                                    PlayerCharacterClientSide.Instance.MapObject.StartMovement(Direction.RIGHT);
+                                }
+                                MoveRight();
+                            });
+                        });
                     }
 
                     public void WalkUp()
                     {
-                        if (loginProtocol.LoggedIn) throttler.Throttled(() => { RunInMainThread(MoveUp); });
+                        if (loginProtocol.LoggedIn) throttler.Throttled(() => {
+                            RunInMainThread(() => {
+                                if (PlayerCharacterClientSide.Instance)
+                                {
+                                    PlayerCharacterClientSide.Instance.MapObject.StartMovement(
+                                        Direction.UP, PlayerCharacterClientSide.Instance.MapObject.IsMoving
+                                    );
+                                }
+                                MoveUp();
+                            });
+                        });
                     }
                 }
             }

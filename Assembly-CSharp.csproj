@@ -52,7 +52,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\Models\GlobalTeleporter.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Messages\CharacterDetails.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\GameServerLauncher.cs" />
      <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\Models\RefereeClientSide.cs" />
@@ -73,9 +72,9 @@
      <Compile Include="Assets\Scripts\Types\Models\User.cs" />
      <Compile Include="Assets\Scripts\Types\Models\QuestItem.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\Models\RefereeServerSide.cs" />
+     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\PlayerCharacterPrincipalProtocolServerSide.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\Models\ScopeAddOns\RefereeSetup.cs" />
      <Compile Include="Assets\Scripts\Types\Protocols\Messages\LoginFailed.cs" />
-     <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\Models\GlobalTeleportTarget.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\Models\ScopeAddOns\InformantSetup.cs" />
      <Compile Include="Assets\Scripts\Server\Authoring\Behaviours\Protocols\LoginProtocolServerSide.cs" />
      <Compile Include="Assets\Scripts\Client\Authoring\Behaviours\Protocols\Models\PlayerCharacterClientSide.cs" />

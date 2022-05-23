@@ -54,18 +54,25 @@
   <ItemGroup>
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Authoring\Behaviours\Server\NetRoseModelServerSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Types\Models\Position.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Types\Models\IServerOwned.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Authoring\Behaviours\Client\NetRoseModelClientSide_queue.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Authoring\Behaviours\Server\NetRoseProtocolServerSide.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Authoring\Behaviours\Client\PrincipalObjectsNetRoseProtocolClientSide.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Authoring\Behaviours\Client\OwnedNetRoseModelClientSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Types\Models\Attachment.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Authoring\Behaviours\Server\NetRoseScopeServerSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Types\Models\Status.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Authoring\Behaviours\Client\INetRoseModelClientSide.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Authoring\Behaviours\Server\OwnedNetRoseModelServerSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Authoring\Behaviours\Server\INetRoseModelServerSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Types\Protocols\Messages\Common\ObjectMessage.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Authoring\Behaviours\Server\PrincipalObjectsNetRoseProtocolServerSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Types\Protocols\Messages\Common\MovementStart.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Authoring\Behaviours\Client\NetRoseScopeClientSide.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Types\Models\IClientOwned.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Authoring\Behaviours\Client\NetRoseModelClientSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Authoring\Behaviours\Client\NetRoseProtocolClientSide.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Types\Models\OwnedModel.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Types\Protocols\NetRoseProtocolDefinition.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\Types\Models\MapObjectModel.cs" />
      <None Include="\home\luismasuelli\Projects\Unity\unity-netrose\Runtime\GameMeanMachine.Unity.NetRose.Runtime.asmdef" />

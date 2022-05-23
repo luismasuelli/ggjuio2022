@@ -61,6 +61,7 @@
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Samples\Scripts\Server\SampleServerStarter.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Samples\Scripts\Server\OwnableModelServerSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Samples\Scripts\Client\SampleClientHandler.cs" />
+     <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Samples\Scripts\Server\Protocols\SamplePrincipalProtocolServerSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Samples\Scripts\Server\TeleportSpawner.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Samples\Scripts\Client\OwnableModelClientSide.cs" />
      <Compile Include="\home\luismasuelli\Projects\Unity\unity-netrose\Samples\Scripts\Server\DoorLinker.cs" />
