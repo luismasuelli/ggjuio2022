@@ -30,7 +30,7 @@ namespace GGJUIO2020.Client
             {
                 [RequireComponent(typeof(Throttler))]
                 [RequireComponent(typeof(PingProtocolClientSide))]
-                [RequireComponent(typeof(NetRoseProtocolClientSide))]
+                [RequireComponent(typeof(PrincipalObjectsNetRoseProtocolClientSide))]
                 [RequireComponent(typeof(LoginProtocolClientSide))]
                 public class MainProtocolClientSide : ProtocolClientSide<MainProtocolDefinition>
                 {

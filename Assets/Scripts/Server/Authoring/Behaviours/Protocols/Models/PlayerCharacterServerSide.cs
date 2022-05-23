@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using GameMeanMachine.Unity.NetRose.Authoring.Behaviours.Server;
+using GameMeanMachine.Unity.NetRose.Types.Models;
 using GGJUIO2020.Types.Protocols.Messages;
 using TMPro;
 
@@ -18,10 +19,9 @@ namespace GGJUIO2020.Server
                     ///   Characters only have a nickname. They have a pretty same and
                     ///   bored design. But the nick is different.
                     /// </summary>
-                    public class PlayerCharacterServerSide : NetRoseModelServerSide<CharacterDetails, CharacterDetails>
+                    public class PlayerCharacterServerSide : OwnedNetRoseModelServerSide<CharacterDetails, CharacterDetails>
                     {
                         private TMP_Text label;
-                        internal ulong Owner;
 
                         private TMP_Text GetLabel()
                         {
@@ -30,6 +30,8 @@ namespace GGJUIO2020.Server
                         }
 
                         private string oldNickname;
+
+                        public float ThrottleTime = 0;
 
                         public string NickName
                         {
@@ -43,39 +45,22 @@ namespace GGJUIO2020.Server
                                 return GetLabel().text;
                             }
                         }
-
-                        protected void Awake()
-                        {
-                            base.Awake();
-                            OnAfterSpawned += OwnableModelServerSide_OnSpawned;
-                            OnBeforeDespawned += OwnableModelServerSide_OnDespawned;
-                        }
                         
-                        protected void OnDestroy()
+                        protected override OwnedModel<CharacterDetails> GetInnerFullData(ulong connectionId)
                         {
-                            base.OnDestroy();
-                            OnSpawned -= OwnableModelServerSide_OnSpawned;
-                            OnDespawned -= OwnableModelServerSide_OnDespawned;
-                        }
-
-                        protected override CharacterDetails GetInnerFullData(ulong connectionId)
-                        {
-                            return new CharacterDetails() {NickName = NickName, Owned = connectionId == Owner};
+                            return new OwnedModel<CharacterDetails>()
+                            {
+                                Owned = connectionId == GetOwner(),
+                                Data = new CharacterDetails()
+                                {
+                                    NickName = NickName
+                                }
+                            };
                         }
 
                         protected override CharacterDetails GetInnerRefreshData(ulong connectionId, string context)
                         {
-                            return new CharacterDetails() {NickName = NickName, Owned = connectionId == Owner};
-                        }
-
-                        private async Task OwnableModelServerSide_OnDespawned()
-                        {
-                            var _ = Protocol.SendToLimbo(Owner);
-                        }
-
-                        private async Task OwnableModelServerSide_OnSpawned()
-                        {
-                            var _ = Protocol.SendTo(Owner, Scope.Id);
+                            return new CharacterDetails() { NickName = NickName };
                         }
                     }
                 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.35872743, a: 1}
+  m_IndirectSpecularColor: {r: 0.37312585, g: 0.3807451, b: 0.358728, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,11 +136,11 @@ GameObject:
   - component: {fileID: 329695842}
   - component: {fileID: 329695841}
   - component: {fileID: 329695846}
-  - component: {fileID: 329695845}
   - component: {fileID: 329695849}
   - component: {fileID: 329695848}
   - component: {fileID: 329695847}
   - component: {fileID: 329695851}
+  - component: {fileID: 329695845}
   - component: {fileID: 329695850}
   m_Layer: 0
   m_Name: GameServer
@@ -222,9 +222,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 329695840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ff49d1be078f9d45ab696d010b97f55, type: 3}
+  m_Script: {fileID: 11500000, guid: 40d90ece839c467eaa826a2c6f8376b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultPrefabIndex: -1
+  defaultPrefabKey: 
 --- !u!114 &329695846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f4057d39b1248a69aa044640f65b864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loginTimeout: 5
+  handshakeTimeout: 5
 --- !u!114 &329695849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a26251bf8f4637b0dd4bf01bd8ed4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ApiKey: 
+  ApiKey: sample-abcdef
 --- !u!114 &329695850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,7 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a053fb0d7174920955085a5c0c41e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  registerTimeout: 5
+  handshakeTimeout: 5
 --- !u!114 &1998763727
 MonoBehaviour:
   m_ObjectHideFlags: 0

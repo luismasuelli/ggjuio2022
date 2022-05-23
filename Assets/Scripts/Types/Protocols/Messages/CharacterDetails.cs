@@ -13,12 +13,10 @@ namespace GGJUIO2020.Types
             public class CharacterDetails : ISerializable
             {
                 public string NickName;
-                public bool Owned;
 
                 public void Serialize(Serializer serializer)
                 {
                     serializer.Serialize(ref NickName);
-                    serializer.Serialize(ref Owned);
                 }
             }
         }

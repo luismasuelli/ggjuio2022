@@ -41,7 +41,7 @@ namespace GGJUIO2020.Server
                                 PlayerCharacterServerSide objSS = obj.GetComponent<PlayerCharacterServerSide>();
                                 if (objSS)
                                 {
-                                    ulong owner = objSS.Owner;
+                                    ulong owner = objSS.GetOwner();
                                     UserAccount account = (UserAccount)loginProtocol.GetSessionData(owner, "account");
                                     if (account.Model.Progress == 9)
                                     {

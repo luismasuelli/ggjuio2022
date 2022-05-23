@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using AlephVault.Unity.Binary.Wrappers;
 using AlephVault.Unity.Meetgard.Authoring.Behaviours.Server;
-using AlephVault.Unity.Meetgard.Types;
 using GameMeanMachine.Unity.NetRose.Authoring.Behaviours.Server;
 using GameMeanMachine.Unity.WindRose.Authoring.Behaviours.Entities.Objects;
 using GameMeanMachine.Unity.WindRose.Authoring.Behaviours.Entities.Objects.CommandExchange.Talk;
@@ -27,17 +25,13 @@ namespace GGJUIO2020.Server
             namespace Protocols
             {
                 [RequireComponent(typeof(PingProtocolServerSide))]
-                [RequireComponent(typeof(NetRoseProtocolServerSide))]
+                [RequireComponent(typeof(PlayerCharacterPrincipalProtocolServerSide))]
                 [RequireComponent(typeof(LoginProtocolServerSide))]
                 public class MainProtocolServerSide : ProtocolServerSide<MainProtocolDefinition>
                 {
                     private LoginProtocolServerSide loginProtocolServerSide;
-                    private NetRoseProtocolServerSide netRoseProtocolServerSide;
+                    private PlayerCharacterPrincipalProtocolServerSide playerCharacterPrincipalProtocolServerSide;
                     private Dictionary<ulong, PlayerCharacterServerSide> playerCharacters;
-
-                    private Dictionary<ulong, PlayerCharacterServerSide> objects = new Dictionary<ulong, PlayerCharacterServerSide>();
-                    private Dictionary<ulong, float> times = new Dictionary<ulong, float>();
-
                     private Func<ulong, CurrentMission, Task> CurrentMissionSender;
                     private Func<ulong, Task> AlreadyCompleteSender;
                     private Func<ulong, Int, Task> InfoSender;
@@ -49,7 +43,7 @@ namespace GGJUIO2020.Server
                     {
                         base.Setup();
                         loginProtocolServerSide = GetComponent<LoginProtocolServerSide>();
-                        netRoseProtocolServerSide = GetComponent<NetRoseProtocolServerSide>();
+                        playerCharacterPrincipalProtocolServerSide = GetComponent<PlayerCharacterPrincipalProtocolServerSide>();
                     }
 
                     protected override void Initialize()
@@ -69,63 +63,36 @@ namespace GGJUIO2020.Server
                         base.Initialize();
                         loginProtocolServerSide.OnSessionStarting += async (clientId, account) =>
                         {
-                            _ = RunInMainThread(() =>
-                            {
-                                NetRoseScopeServerSide centralScope = netRoseProtocolServerSide.ScopesProtocolServerSide
-                                    .LoadedScopes[1].GetComponent<NetRoseScopeServerSide>();
-                                Map centralMap = centralScope.GetComponent<Scope>()[0];
-                                // Store the account data.
-                                loginProtocolServerSide.SetSessionData(clientId, "account", account);
-                                // Instantiate the prefab for the player.
-                                var obj = netRoseProtocolServerSide.InstantiateHere(
-                                    "player", async (obj) =>
-                                    {
-                                        PlayerCharacterServerSide objSS = obj.GetComponent<PlayerCharacterServerSide>();
-                                        // Give it the required connection id.
-                                        objSS.Owner = clientId;
-                                        objSS.NickName = account.NickName;
-                                        // Add it to the dictionary.
-                                        objects[clientId] = objSS;
-                                        times[clientId] = 0;
-                                        // And attach it. This will causa a spawn.
-                                        MapObject mapObj = obj.GetComponent<MapObject>();
-                                        mapObj.Initialize();
-                                        mapObj.Attach(centralMap, PLAYER_X, PLAYER_Y, true);
-                                    }
-                                );
-                                // Put it in the appropriate scope, and synchronize.
-                            });
+                            loginProtocolServerSide.SetSessionData(clientId, "account", account);
+                            playerCharacterPrincipalProtocolServerSide.InstantiateCharacter(
+                                clientId, () => {
+                                    NetRoseScopeServerSide centralScope = playerCharacterPrincipalProtocolServerSide.ScopesProtocolServerSide
+                                        .LoadedScopes[1].GetComponent<NetRoseScopeServerSide>();
+                                    return centralScope.GetComponent<Scope>()[0];
+                                }, PLAYER_X, PLAYER_Y, (ch) => {
+                                    ch.NickName = account.NickName;
+                                }
+                            );
                         };
                         loginProtocolServerSide.OnSessionTerminating += async (clientId, account) =>
                         {
-                            _ = RunInMainThread(() =>
-                            {
-                                if (objects.TryGetValue(clientId, out PlayerCharacterServerSide objSS))
-                                {
-                                    // It will de-spawn and destroy the object.
-                                    Destroy(objSS.MapObject.gameObject);
-                                    // Then, unregistering it.
-                                    objects.Remove(clientId);
-                                    times.Remove(clientId);
-                                }
-                            });
+                            playerCharacterPrincipalProtocolServerSide.RemoveCharacter(clientId);
                         };
                     }
 
                     private void DoThrottled(ulong connectionId, Action<MapObject> callback)
                     {
-                        PlayerCharacterServerSide objSS = objects[connectionId];
+                        PlayerCharacterServerSide objSS = playerCharacterPrincipalProtocolServerSide.GetPrincipal(connectionId);
                         MapObject obj = objSS.MapObject;
                         float time = Time.time;
-                        if (times[objSS.Owner] + 0.75 / obj.Speed <= time)
+                        if (objSS.ThrottleTime + 0.75 / obj.Speed <= time)
                         {
-                            times[objSS.Owner] = time;
+                            objSS.ThrottleTime = time;
                             callback(obj);
                         }
                     }
                     protected override void SetIncomingMessageHandlers()
                     {
-                        base.SetIncomingMessageHandlers();
                         AddIncomingMessageHandler("MoveLeft", async (protocol, clientId) =>
                         {
                             var _ = RunInMainThread(() =>

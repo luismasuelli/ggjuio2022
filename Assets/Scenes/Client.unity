@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.35872743, a: 1}
+  m_IndirectSpecularColor: {r: 0.37312585, g: 0.3807451, b: 0.358728, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1459,9 +1459,9 @@ GameObject:
   - component: {fileID: 473662297}
   - component: {fileID: 473662296}
   - component: {fileID: 473662301}
-  - component: {fileID: 473662300}
   - component: {fileID: 473662302}
   - component: {fileID: 473662305}
+  - component: {fileID: 473662300}
   - component: {fileID: 473662303}
   - component: {fileID: 473662304}
   m_Layer: 0
@@ -1543,7 +1543,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 473662295}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2942e7fc4e71f1743bf41547d8d732d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fac398eceeb17af5a59128d259b634b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &473662301
@@ -3875,7 +3875,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 4, y: -0.000015258789}
+  m_AnchoredPosition: {x: 4.0000305, y: -0.000030517578}
   m_SizeDelta: {x: 760, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1532777290
