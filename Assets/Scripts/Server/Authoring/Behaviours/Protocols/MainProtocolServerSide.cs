@@ -85,7 +85,7 @@ namespace GGJUIO2020.Server
                         PlayerCharacterServerSide objSS = playerCharacterPrincipalProtocolServerSide.GetPrincipal(connectionId);
                         MapObject obj = objSS.MapObject;
                         float time = Time.time;
-                        if (objSS.ThrottleTime + 0.75 / obj.Speed <= time)
+                        if (objSS.ThrottleTime + 0.50 / obj.Speed <= time)
                         {
                             objSS.ThrottleTime = time;
                             callback(obj);

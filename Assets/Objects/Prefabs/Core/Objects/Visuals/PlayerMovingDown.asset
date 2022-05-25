@@ -17,4 +17,4 @@ MonoBehaviour:
   - {fileID: 7388399842426930641, guid: cafba7bafb609875ca90c4c3606e6b60, type: 3}
   - {fileID: 6757282713640645180, guid: cafba7bafb609875ca90c4c3606e6b60, type: 3}
   - {fileID: 7388399842426930641, guid: cafba7bafb609875ca90c4c3606e6b60, type: 3}
-  fps: 4
+  fps: 6

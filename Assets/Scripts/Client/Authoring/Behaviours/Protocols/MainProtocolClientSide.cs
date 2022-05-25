@@ -1,24 +1,15 @@
 using System;
 using System.Threading.Tasks;
 using AlephVault.Unity.Binary.Wrappers;
-using AlephVault.Unity.Meetgard.Auth.Protocols.Simple;
-using AlephVault.Unity.Meetgard.Auth.Types;
 using AlephVault.Unity.Meetgard.Authoring.Behaviours.Client;
-using AlephVault.Unity.Meetgard.Protocols;
-using AlephVault.Unity.Meetgard.Samples.Chat;
-using AlephVault.Unity.Meetgard.Types;
-using AlephVault.Unity.RemoteStorage.Types.Results;
 using AlephVault.Unity.Support.Authoring.Behaviours;
 using AlephVault.Unity.Support.Utils;
 using GameMeanMachine.Unity.NetRose.Authoring.Behaviours.Client;
 using GameMeanMachine.Unity.WindRose.Types;
 using GGJUIO2020.Client.Authoring.Behaviours.Protocols.Models;
-using GGJUIO2020.Server.Authoring.Behaviours.External;
-using GGJUIO2020.Types.Models;
 using GGJUIO2020.Types.Protocols.Definitions;
 using GGJUIO2020.Types.Protocols.Messages;
 using UnityEngine;
-using Exception = System.Exception;
 using String = AlephVault.Unity.Binary.Wrappers.String;
 
 
@@ -41,6 +32,7 @@ namespace GGJUIO2020.Client
                     private Func<Task> MoveUp;
                     private Func<Task> MoveDown;
                     private Func<Task> Talk;
+                    private PlayerCharacterClientSide lastInstance;
 
                     private LoginProtocolClientSide loginProtocol;
                     private Throttler throttler;
@@ -114,11 +106,14 @@ namespace GGJUIO2020.Client
                     {
                         if (loginProtocol.LoggedIn) throttler.Throttled(() => {
                             RunInMainThread(() => {
-                                if (PlayerCharacterClientSide.Instance)
+                                if (PlayerCharacterClientSide.Instance && PlayerCharacterClientSide.Instance.IsOptimistic())
                                 {
-                                    PlayerCharacterClientSide.Instance.MapObject.StartMovement(Direction.DOWN);
+                                    OptimisticMove(Direction.DOWN);
                                 }
-                                MoveDown();
+                                else
+                                {
+                                    MoveDown();
+                                }
                             });
                         });
                     }
@@ -127,11 +122,14 @@ namespace GGJUIO2020.Client
                     {
                         if (loginProtocol.LoggedIn) throttler.Throttled(() => {
                             RunInMainThread(() => {
-                                if (PlayerCharacterClientSide.Instance)
+                                if (PlayerCharacterClientSide.Instance && PlayerCharacterClientSide.Instance.IsOptimistic())
                                 {
-                                    PlayerCharacterClientSide.Instance.MapObject.StartMovement(Direction.LEFT);
+                                    OptimisticMove(Direction.LEFT);
                                 }
-                                MoveLeft();
+                                else
+                                {
+                                    MoveLeft();
+                                }
                             });
                         });
                     }
@@ -140,11 +138,14 @@ namespace GGJUIO2020.Client
                     {
                         if (loginProtocol.LoggedIn) throttler.Throttled(() => {
                             RunInMainThread(() => {
-                                if (PlayerCharacterClientSide.Instance)
+                                if (PlayerCharacterClientSide.Instance && PlayerCharacterClientSide.Instance.IsOptimistic())
                                 {
-                                    PlayerCharacterClientSide.Instance.MapObject.StartMovement(Direction.RIGHT);
+                                    OptimisticMove(Direction.RIGHT);
                                 }
-                                MoveRight();
+                                else
+                                {
+                                    MoveRight();
+                                }
                             });
                         });
                     }
@@ -153,15 +154,56 @@ namespace GGJUIO2020.Client
                     {
                         if (loginProtocol.LoggedIn) throttler.Throttled(() => {
                             RunInMainThread(() => {
-                                if (PlayerCharacterClientSide.Instance)
+                                if (PlayerCharacterClientSide.Instance && PlayerCharacterClientSide.Instance.IsOptimistic())
                                 {
-                                    PlayerCharacterClientSide.Instance.MapObject.StartMovement(
-                                        Direction.UP, PlayerCharacterClientSide.Instance.MapObject.IsMoving
-                                    );
+                                    OptimisticMove(Direction.UP);
                                 }
-                                MoveUp();
+                                else
+                                {
+                                    MoveUp();
+                                }
                             });
                         });
+                    }
+
+                    private void OptimisticMove(Direction d)
+                    {
+                        if (PlayerCharacterClientSide.Instance != lastInstance)
+                        {
+                            if (lastInstance)
+                            {
+                                lastInstance.MapObject.onMovementStarted.RemoveListener(OnInstanceMovementStarted);
+                            }
+
+                            if (PlayerCharacterClientSide.Instance)
+                            {
+                                PlayerCharacterClientSide.Instance.MapObject.onMovementStarted.AddListener(OnInstanceMovementStarted);
+                            }
+                            
+                            lastInstance = PlayerCharacterClientSide.Instance;
+                        }
+                        PlayerCharacterClientSide.Instance.MapObject.StartMovement(
+                            d, PlayerCharacterClientSide.Instance.MapObject.IsMoving
+                        );
+                    }
+
+                    private void OnInstanceMovementStarted(Direction d)
+                    {
+                        switch (d)
+                        {
+                            case Direction.UP:
+                                MoveUp();
+                                break;
+                            case Direction.RIGHT:
+                                MoveRight();
+                                break;
+                            case Direction.LEFT:
+                                MoveLeft();
+                                break;
+                            case Direction.DOWN:
+                                MoveDown();
+                                break;
+                        }
                     }
                 }
             }
